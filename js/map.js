@@ -332,7 +332,7 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
         } else if (d.Gender == ""){
             return "white";
         } else {
-            return "white";
+            return "orange";
         }
     })
         .attr( "opacity", 0.8 )
@@ -355,7 +355,7 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
         } else if (d.Gender == ""){
             return "white";
         } else {
-            return "white";
+            return "orange";
         }
     })
         .attr( "d", geoPath)
