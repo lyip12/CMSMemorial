@@ -1,17 +1,40 @@
-updatemap();
+var start = 1930;
+var end = 2010;
+
+//https://jqueryui.com/slider/#range
+$( function() {
+    $( "#slider-range" ).slider({
+        range: true,
+        min: 1930,
+        max: 2010,
+        values: [ 1930, 2010 ],
+        slide: function( event, ui ) {
+            $( "#range" ).val( ui.values[0] + " - " + ui.values[1] );
+            start = ui.values[0];
+            end = ui.values[1];
+            updatemap(start, end);
+        }
+    });
+    $( "#range" ).val($( "#slider-range" ).slider( "values", 0 ) +
+                      " - " + $( "#slider-range" ).slider( "values", 1 ) );
+} );
+
+
+
+updatemap(start, end);
 
 d3.select("#category").on("change", function () {
-    updatemap()
+    updatemap(start, end);
 });
 d3.select("#type").on("change", function () {
-    updatemap()
+    updatemap(start, end);
 });
 d3.select("#status").on("change", function () {
-    updatemap()
+    updatemap(start, end);
 });
 
 
-function updatemap(){
+function updatemap(start, end){
 
     d3.selectAll("path").remove();
 
@@ -47,8 +70,13 @@ function updatemap(){
             return typefilter;
         }
     })
+    
+    
+    var timefilter = statusfilter.filter(function(d) { 
+        return d.YearMonumentalized >= start && d.YearMonumentalized <= end;
+    })
 
-    console.log(statusfilter);
+    console.log(timefilter);
     //            
     //    var filtereddata = raw_json.features.filter(function(d) { 
     //        return d.features.Ownership == "unknown"; 
@@ -78,25 +106,25 @@ function updatemap(){
         var mapbackgroundstart = "<img src='assets/image/map";
         var mapbackgroundfinish = ".jpg' id='responsive-map' alt='old boston map'>";
         //console.log(mapbackgroundstart + 2013 + mapbackgroundfinish)
-        if(d.YearBuilt > 2013){
+        if(d.YearMonumentalized > 2013){
             document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 2013 + mapbackgroundfinish;
             responsivemap();
-        } else if (d.YearBuilt <= 2013 && d.YearBuilt > 1970){
+        } else if (d.YearMonumentalized <= 2013 && d.YearMonumentalized > 1970){
             document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1970 + mapbackgroundfinish;
             responsivemap();
-        } else if (d.YearBuilt <= 1970 && d.YearBuilt > 1950){
+        } else if (d.YearMonumentalized <= 1970 && d.YearMonumentalized > 1950){
             document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1950 + mapbackgroundfinish;
             responsivemap();
-        } else if (d.YearBuilt <= 1950 && d.YearBuilt > 1930){
+        } else if (d.YearMonumentalized <= 1950 && d.YearMonumentalized > 1930){
             document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1930 + mapbackgroundfinish;
             responsivemap();
-        } else if (d.YearBuilt <= 1930 && d.YearBuilt > 1900){
+        } else if (d.YearMonumentalized <= 1930 && d.YearMonumentalized > 1900){
             document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1900 + mapbackgroundfinish;
             responsivemap();
-        } else if (d.YearBuilt <= 1900 && d.YearBuilt > 1870){
+        } else if (d.YearMonumentalized <= 1900 && d.YearMonumentalized > 1870){
             document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1870 + mapbackgroundfinish;
             responsivemap();
-        } else if (d.YearBuilt <= 1870 && d.YearBuilt > 1850){
+        } else if (d.YearMonumentalized <= 1870 && d.YearMonumentalized > 1850){
             document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1850 + mapbackgroundfinish;
             responsivemap();
         } else {
@@ -169,7 +197,7 @@ function updatemap(){
         }
 
         var t = "<h5>" + d.Name + "</h5>"
-        + "<p>built in " + d.YearBuilt + "<br><br>" 
+        + "<p>built in " + d.YearMonumentalized + "<br><br>" 
         + "<b>Address:</b><br>"
         + d.AddressNum + " " + d.Street + "<br>"
         + "Boston, " + d.State + "<br>"
@@ -221,11 +249,11 @@ function updatemap(){
 
     var raw = svg.append("g");
 
-    console.log(statusfilter);
+    //console.log(statusfilter);
 
 
     raw.selectAll("path")
-        .data(statusfilter)
+        .data(timefilter)
         .enter()
         .append( "path" )
         .attr( "fill", function(d){
