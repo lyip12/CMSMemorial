@@ -37,8 +37,8 @@ function updatemap(){
             return categoryfilter;
         }
     })
-    
-    
+
+
 
     var statusfilter = typefilter.filter(function(d) { 
         if(selectstatus !== "all"){
@@ -73,13 +73,45 @@ function updatemap(){
             .style("fill", "#ff8003")
             .style("stroke", "#ff8003")
             .style("opacity", 1)
-        console.log(d)
-        
+
+
+        var mapbackgroundstart = "<img src='assets/image/map";
+        var mapbackgroundfinish = ".jpg' id='responsive-map' alt='old boston map'>";
+        //console.log(mapbackgroundstart + 2013 + mapbackgroundfinish)
+        if(d.YearBuilt > 2013){
+            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 2013 + mapbackgroundfinish;
+            responsivemap();
+        } else if (d.YearBuilt <= 2013 && d.YearBuilt > 1970){
+            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1970 + mapbackgroundfinish;
+            responsivemap();
+        } else if (d.YearBuilt <= 1970 && d.YearBuilt > 1950){
+            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1950 + mapbackgroundfinish;
+            responsivemap();
+        } else if (d.YearBuilt <= 1950 && d.YearBuilt > 1930){
+            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1930 + mapbackgroundfinish;
+            responsivemap();
+        } else if (d.YearBuilt <= 1930 && d.YearBuilt > 1900){
+            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1900 + mapbackgroundfinish;
+            responsivemap();
+        } else if (d.YearBuilt <= 1900 && d.YearBuilt > 1870){
+            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1870 + mapbackgroundfinish;
+            responsivemap();
+        } else if (d.YearBuilt <= 1870 && d.YearBuilt > 1850){
+            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1850 + mapbackgroundfinish;
+            responsivemap();
+        } else {
+            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1780 + mapbackgroundfinish;
+            responsivemap();
+        };
+
+
+
+
         if((d.Gender) !== ""){ var gender = "<br><button type='button' class='btn-secondary btn-sm' style='font-size: 10px; background-color: #8b9487 !important;border: none !important; height: 25px;'>gender</button>"} else { var gender = ""};
         if((d.Ethnicity) !== ""){ var ethnicity = "<br><button type='button' class='btn-secondary btn-sm' style='font-size: 10px; background-color: #8b9487 !important;border: none !important; height: 25px;'>ethnicity</button>"} else { var ethnicity = ""};
         if((d.Controversy) !== ""){ var contro = "<br><button type='button' class='btn-secondary btn-sm' style='font-size: 10px; background-color: #8b9487 !important;border: none !important; height: 25px;'>controversy</button>"} else { var contro = ""};
         if((d.Vandalized) !== ""){ var van = "<br><button type='button' class='btn-secondary btn-sm' style='font-size: 10px; background-color: #8b9487 !important;border: none !important; height: 25px;'>vandalized</button>"} else { var van = ""};
-        
+
         tip = d.Name + gender + ethnicity + contro + van;
 
         Tooltip
@@ -122,20 +154,20 @@ function updatemap(){
             .duration(300)
             .style("opacity", 1);
 
-        
+
         if((d.Gender) !== ""){ var g = "Gender: "+d.Gender+"<br>"} else { var g = ""};
         if((d.Ethnicity) !== ""){ var e = "Ethnicity: " + d.Ethnicity} else { var e = ""};
         if((d.Controversy) !== ""){ var c = "Controversy: " + d.Controversy} else { var c = ""};
         if((d.Vandalized) !== ""){ var v = "Vandalized: " + d.Vandalized} else { var v = ""};
         var special = g+e+c+v;
         var sr = "";
-        
+
         if(special !==""){
             var sr = "<b style='color: red !important;'>Special Record:<br>" + special + "</b><br><br>";
         } else {
             var sr = "Special Record: none <br><br>";
         }
-        
+
         var t = "<h5>" + d.Name + "</h5>"
         + "<p>built in " + d.YearBuilt + "<br><br>" 
         + "<b>Address:</b><br>"
@@ -149,7 +181,7 @@ function updatemap(){
         + d.Comments + "</p>"
         + "<img src='assets/dataimg/"+d.ID+"_01.jpg' class='responsive-image'>"
         + "<p>Entry ID: "+d.ID+" - <a href="+d.Source+">Source of Data Entry</a></p>";
-        
+
         document.getElementById("maptext").innerHTML = t;
     }
 
@@ -158,7 +190,7 @@ function updatemap(){
     .classed("svg-container", true) 
     .append("svg")
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 1000 1100")
+    .attr("viewBox", "0 0 1000 1000")
     .classed("svg-content-responsive", true);
 
     var path = d3.geoPath();
@@ -189,15 +221,29 @@ function updatemap(){
 
     var raw = svg.append("g");
 
-    console.log(geoPath);
+    console.log(statusfilter);
+
 
     raw.selectAll("path")
         .data(statusfilter)
         .enter()
         .append( "path" )
-        .attr( "fill", "white" )
-        .attr("stroke-width", 1)
-        .attr( "stroke", "white" )
+        .attr( "fill", function(d){
+        if(d.Zipcode < 2000){
+            return "white";
+        } else {
+            return "#000000";
+        }
+    })
+        .attr( "opacity", 0.8 )
+        .attr("stroke-width", 15)
+        .attr( "stroke", function(d){
+        if(d.Zipcode < 2000){
+            return "white";
+        } else {
+            return "#000000";
+        }
+    })
         .attr( "d", geoPath)
         .on("click", mouseClick)
         .on("mouseover", mouseOver)
