@@ -25,7 +25,8 @@ h5 {
 }
 
 p,
-a{
+a,
+form{
     font-family: 'Roboto', sans-serif;
     color: #ADA07C !important;
     font-size: 12px !important;
