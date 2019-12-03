@@ -1,7 +1,15 @@
 var start = 1600;
 var end = 2019;
+var selectcategory = "all",
+    selecttype  = "all",
+    selectstatus = "all",
+    selecttime = "yes";
+
 
 //https://jqueryui.com/slider/#range
+updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
+
+
 $( function() {
     $( "#slider-range" ).slider({
         range: true,
@@ -12,7 +20,13 @@ $( function() {
             $( "#range" ).val( ui.values[0] + " - " + ui.values[1] );
             start = ui.values[0];
             end = ui.values[1];
-            updatemap(start, end);
+
+
+            var selectcategory = $("input[name='category']:checked").val();
+            var selecttype = $("input[name='type']:checked").val();
+            var selectstatus = $("input[name='status']:checked").val();
+            var selecttime= $("input[name='time']:checked").val();
+            updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
         }
     });
     $( "#range" ).val($( "#slider-range" ).slider( "values", 0 ) +
@@ -20,30 +34,76 @@ $( function() {
 } );
 
 
-
-updatemap(start, end);
-
-d3.select("#category").on("change", function () {
-    updatemap(start, end);
-});
-d3.select("#type").on("change", function () {
-    updatemap(start, end);
-});
-d3.select("#status").on("change", function () {
-    updatemap(start, end);
+$("#categoryfilter").click(function () {
+    var selectcategory = $("input[name='category']:hover").val();
+    var selecttype = $("input[name='type']:checked").val();
+    var selectstatus = $("input[name='status']:checked").val();
+    var selecttime= $("input[name='time']:checked").val();
+    //console.log(yipchoroselector);
+    if (selectcategory !== undefined && selectcategory !== "NA") {
+        updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
+    };
 });
 
+$("#typefilter").click(function () {
+    var selecttype = $("input[name='type']:hover").val();
+    var selectcategory = $("input[name='category']:checked").val();
+    var selectstatus = $("input[name='status']:checked").val();
+    var selecttime= $("input[name='time']:checked").val();
+    //console.log(yipchoroselector);
+    if (selecttype !== undefined && selecttype !== "NA") {
+        updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
+    };
+});
 
-function updatemap(start, end){
+$("#statusfilter").click(function () {
+    var selectstatus = $("input[name='status']:hover").val();
+    var selecttype = $("input[name='type']:checked").val();
+    var selectcategory = $("input[name='category']:checked").val();
+    var selecttime= $("input[name='time']:checked").val();
+    //console.log(yipchoroselector);
+    if (selectstatus !== undefined && selectstatus !== "NA") {
+        updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
+    };
+});
+
+$("#timefilter").click(function () {
+    var selecttime= $("input[name='time']:hover").val();
+    var selecttype = $("input[name='type']:checked").val();
+    var selectstatus = $("input[name='status']:checked").val();
+    var selectcategory = $("input[name='category']:checked").val();
+    //console.log(yipchoroselector);
+    if (selecttime !== undefined && selecttime !== "NA") {
+        updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
+    };
+});
+
+
+//d3.select("#category").on("change", function () {
+//    updatemap(start, end);
+//});
+//d3.select("#type").on("change", function () {
+//    updatemap(start, end);
+//});
+//d3.select("#status").on("change", function () {
+//    updatemap(start, end);
+//});
+
+
+function updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime){
 
     d3.selectAll("path").remove();
 
-    var selectcategory = d3.select("#category").property("value");
-    var selecttype = d3.select("#type").property("value");
-    var selectstatus = d3.select("#status").property("value");
+    //    var selectcategory = d3.select("#category").property("value");
+    //    var selecttype = d3.select("#type").property("value");
+    //    var selectstatus = d3.select("#status").property("value");
 
-    console.log(raw_json.features);
+    //console.log(raw_json.features);
 
+    console.log(selectcategory + ", " +
+                selecttype + ", " +
+                selectstatus + ", " +
+                selecttime);
 
     var categoryfilter = raw_json.features.filter(function(d) { 
         if(selectcategory !== "all"){
@@ -70,13 +130,21 @@ function updatemap(start, end){
             return typefilter;
         }
     })
-    
-    
-    var timefilter = statusfilter.filter(function(d) { 
-        return (d.YearMonumentalized >= start && d.YearMonumentalized <= end) || d.YearMonumentalized == "";
-    })
 
-    console.log(timefilter);
+    var timefilter = statusfilter.filter(function(d) { 
+        if(selecttime == "yes"){
+            return (d.YearMonumentalized >= start && d.YearMonumentalized <= end) || d.YearMonumentalized == "";
+        } else {
+            return d.YearMonumentalized >= start && d.YearMonumentalized <= end;
+        };
+    })
+    
+    
+    var finalfilter = timefilter.sort( function(a, b){ 
+        return a.Gender - b.Gender;
+    });
+
+    // console.log(end);
     //            
     //    var filtereddata = raw_json.features.filter(function(d) { 
     //        return d.features.Ownership == "unknown"; 
@@ -253,29 +321,39 @@ function updatemap(start, end){
 
 
     raw.selectAll("path")
-        .data(timefilter)
+        .data(finalfilter)
         .enter()
         .append( "path" )
         .attr( "fill", function(d){
         if(d.Gender == "female"){
-            return "red";
+            return "#ff8e4d";
         } else if (d.Gender == "male"){
-            return "blue";
+            return "#9fe0df";
         } else if (d.Gender == ""){
-            return "gray";
+            return "white";
         } else {
             return "white";
         }
     })
         .attr( "opacity", 0.8 )
-        .attr("stroke-width", 0.01)
+        .attr("stroke-width", function(d){
+        if(d.Gender == "female"){
+            return 10;
+        } else if (d.Gender == "male"){
+            return 2;
+        } else if (d.Gender == ""){
+            return 0.01;
+        } else {
+            return 0.01;
+        }
+    })
         .attr( "stroke", function(d){
         if(d.Gender == "female"){
-            return "red";
+            return "#ff8e4d";
         } else if (d.Gender == "male"){
-            return "blue";
+            return "#9fe0df";
         } else if (d.Gender == ""){
-            return "gray";
+            return "white";
         } else {
             return "white";
         }

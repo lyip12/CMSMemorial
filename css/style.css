@@ -24,7 +24,8 @@ h5 {
     font-weight: 700 !important;
 }
 
-p{
+p,
+a{
     font-family: 'Roboto', sans-serif;
     color: #ADA07C !important;
     font-size: 12px !important;
@@ -77,23 +78,50 @@ a.drop {
     margin: 10px;
 }
 
-a.btn{
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    border: 0px;
-    color:white;
-    background:#FFC66C;
+.btn {
+    font-family: 'Roboto', sans-serif !important; 
+    color: #8b9487 !important;
+    font-size: 12px !important;
+    font-weight: 300 !important;
+    padding-left: 0px !important;
+    padding-right: 10px !important;
+    padding-top: 5px !important;
+    padding-bottom: 4px !important;
+    border: none !important;
 }
 
-a.btn-change{
-    -webkit-transition: all 0.1s ease-in-out;
+.btn-light {
+    font-family: 'Roboto', sans-serif !important; 
+    color: white !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    padding: 6px !important;
+    background-color: #8b9487 !important;
+    border: none !important;
 }
-a.btn-change:hover{
-    -webkit-transform: scale(1.1);
-    background: #FF5D5D;
-    color: white;
+
+.btn-dark {
+    font-family: 'Roboto', sans-serif !important; 
+    color: white !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    padding: 6px !important;
+    background-color: #3d3631;
+    border: none !important;
 }
+
+.btn-light:hover {
+    font-family: 'Roboto', sans-serif; 
+    color: #8b9487 !important;
+    background: white !important;
+}
+
+.btn-light:checked,
+.btn-light:active,{
+    font-weight: 700 !important;
+}
+
+
 
 th{
     color: white;

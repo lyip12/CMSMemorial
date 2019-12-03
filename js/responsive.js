@@ -6,3 +6,7 @@ function responsivemap(){
     var maptop = -(w-200)*2/3-15;
     document.getElementById('responsive-map').style.marginTop = maptop + "px";
 }
+
+$('label').click( function() {
+  $(this).removeClass('btn-light').addClass('btn-dark').siblings().addClass('btn-light');
+});
