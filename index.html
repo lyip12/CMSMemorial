@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>D3 Monument Map</title>
         <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
@@ -136,136 +136,150 @@
                     </form>
                     <p class="blue"> Date Range: 
                         <input type="text" id="range" readonly>
-                    <p><br>*Built Year filter and tag filter yet to be fully implemented due to data-formatting error</p>
-                    <div style="height:25px"></div>
-                    <div class="line"></div>
-                    <div style="height:50px"></div>
-                    <div id="maptext"><p>Hover above individual data entry on the map to display establish name, and click on individual data entry for more information</p></div>
-                </div>
+                    </p>
+                    <div id="slider-range"></div>
+                    <p class="blue"> <br>*Chart on left is approximated to existing data</p>
+
+                    <p id="table" class="blue"></p>
+
+                    <p>*Built Year filter and tag filter yet to be fully implemented due to data-formatting error</p>
+                <div style="height:25px"></div>
+                <div class="line"></div>
+                <div style="height:50px"></div>
+                <div id="maptext"><p>Hover above individual data entry on the map to display establish name, and click on individual data entry for more information</p></div>
             </div>
+        </div>
 
-            <div class="line"></div>
-            <div style="height:50px"></div>
+        <div class="line"></div>
+        <div style="height:50px"></div>
 
-            <div class="row">
-                <div class="col-md-2" style="padding-right: 3vw;">
-                    <div class="line"></div>
-                    <div style="height:20px"></div>
-                    <h5>Downtown</h5>
-                    <p><br>The Downtown Walk begins at the State House and goes past many of Boston’s earliest historic sites, ending at Franklin and Washington streets, a block below Tremont Street and the Boston Common. The walk features women across the centuries, with a focus on the eighteenth century through the mid-nineteenth century. It includes women who wrote poetry, essays, and plays and spoke out publicly before members of the Massachusetts State Legislature and in Boston’s halls and churches for the abolition of slavery, woman suffrage, and African American and Native American rights. Boston’s downtown area is home to its business and financial institutions, as well as to a major shopping area and the Quincy Market at Faneuil Hall.</p>
-                    <div style="height:10px"></div>
-                    <div class="line"></div>
-                </div>
-                <div class="col-md-2" style="padding-right: 3vw;">
-                    <div class="line"></div>
-                    <div style="height:20px"></div>
-                    <h5>Beacon Hill</h5>
-                    <p><br>The Beacon Hill Walk begins at the Massachusetts State House with the statues of two seventeenth century women religious dissenters. The walk continues up, down, and across Beacon Hill, often paralleling the Black Heritage Trail. Starting with intense activity in the period before and after the Civil War and continuing into the nineteenth century, women writers and artists living here supported social movements ranging from anti-slavery to suffrage. The walk pays particular attention to the story of Beacon Hill’s African American women and of Boston’s first women doctors and professional nurses. Beacon Hill is a designated Historic District with narrow, steep, sometimes cobblestone streets, and brick homes featuring beautiful doorways and window boxes. It was first developed by the Mount Vernon Proprietors in 1795. Charles Street along its western edge includes antique and specialty shops, restaurants, and grocery stores.</p>
-                    <div style="height:10px"></div>
-                    <div class="line"></div>
-                </div>
-                <div class="col-md-2" style="padding-right: 3vw;">
-                    <div class="line"></div>
-                    <div style="height:20px"></div>
-                    <h5>Backbay West</h5>
-                    <p><br>The Back Bay West Walk starts at Copley Square and ends at the Boston Women’s Memorial. Focusing on women of the mid-nineteenth and early twentieth centuries, the sites demonstrate the high energy devoted by women to the arts and education, pointing out educational institutions, clubs, and art associations as well as women’s sculptures.</p>
-                    <div style="height:10px"></div>
-                    <div class="line"></div>
-                </div>
-                <div class="col-md-2" style="padding-right: 3vw;">
-                    <div class="line"></div>
-                    <div style="height:20px"></div>
-                    <h5>Backbay East</h5>
-                    <p><br>The Back Bay, originally a mudflat, was filled in with gravel brought from suburban Needham by train between 1852 and 1890. The land is flat, with streets laid out in a straight grid. The cross streets are conveniently named alphabetically from A to H. This elegant neighborhood includes Commonwealth Avenue with its tree-lined mall of grass, center walking path, and sculptures, as well as the “uptown” shopping area with high-end stores, art galleries, and restaurants. The Back Bay East Walk starts and ends at the Public Garden. The sites highlight the work of women in the arts and in education, and women who led the way in environmental protection, suffrage, and peace.</p>
-                    <div style="height:10px"></div>
-                    <div class="line"></div>
-                </div>
-                <div class="col-md-4" style="padding-left: 3vw;">
-                    <h1>Boston Women’s Heritage Trail</h1>
-                    <p><br>Since 1989, the Boston Women’s Heritage Trail (BWHT) has worked to restore women to their rightful place in the history of Boston and in the school curriculum by uncovering, chronicling, and disseminating information about the women who have made lasting contributions to the City of Boston.</p>
-
-
+        <div class="row">
+            <div class="col-md-2" style="padding-right: 3vw;">
+                <div class="line"></div>
+                <div style="height:20px"></div>
+                <h5>Downtown</h5>
+                <p><br>The Downtown Walk begins at the State House and goes past many of Boston’s earliest historic sites, ending at Franklin and Washington streets, a block below Tremont Street and the Boston Common. The walk features women across the centuries, with a focus on the eighteenth century through the mid-nineteenth century. It includes women who wrote poetry, essays, and plays and spoke out publicly before members of the Massachusetts State Legislature and in Boston’s halls and churches for the abolition of slavery, woman suffrage, and African American and Native American rights. Boston’s downtown area is home to its business and financial institutions, as well as to a major shopping area and the Quincy Market at Faneuil Hall.</p>
+                <div style="height:10px"></div>
+                <div class="line"></div>
+            </div>
+            <div class="col-md-2" style="padding-right: 3vw;">
+                <div class="line"></div>
+                <div style="height:20px"></div>
+                <h5>Beacon Hill</h5>
+                <p><br>The Beacon Hill Walk begins at the Massachusetts State House with the statues of two seventeenth century women religious dissenters. The walk continues up, down, and across Beacon Hill, often paralleling the Black Heritage Trail. Starting with intense activity in the period before and after the Civil War and continuing into the nineteenth century, women writers and artists living here supported social movements ranging from anti-slavery to suffrage. The walk pays particular attention to the story of Beacon Hill’s African American women and of Boston’s first women doctors and professional nurses. Beacon Hill is a designated Historic District with narrow, steep, sometimes cobblestone streets, and brick homes featuring beautiful doorways and window boxes. It was first developed by the Mount Vernon Proprietors in 1795. Charles Street along its western edge includes antique and specialty shops, restaurants, and grocery stores.</p>
+                <div style="height:10px"></div>
+                <div class="line"></div>
+            </div>
+            <div class="col-md-2" style="padding-right: 3vw;">
+                <div class="line"></div>
+                <div style="height:20px"></div>
+                <h5>Backbay West</h5>
+                <p><br>The Back Bay West Walk starts at Copley Square and ends at the Boston Women’s Memorial. Focusing on women of the mid-nineteenth and early twentieth centuries, the sites demonstrate the high energy devoted by women to the arts and education, pointing out educational institutions, clubs, and art associations as well as women’s sculptures.</p>
+                <div style="height:10px"></div>
+                <div class="line"></div>
+            </div>
+            <div class="col-md-2" style="padding-right: 3vw;">
+                <div class="line"></div>
+                <div style="height:20px"></div>
+                <h5>Backbay East</h5>
+                <p><br>The Back Bay, originally a mudflat, was filled in with gravel brought from suburban Needham by train between 1852 and 1890. The land is flat, with streets laid out in a straight grid. The cross streets are conveniently named alphabetically from A to H. This elegant neighborhood includes Commonwealth Avenue with its tree-lined mall of grass, center walking path, and sculptures, as well as the “uptown” shopping area with high-end stores, art galleries, and restaurants. The Back Bay East Walk starts and ends at the Public Garden. The sites highlight the work of women in the arts and in education, and women who led the way in environmental protection, suffrage, and peace.</p>
+                <div style="height:10px"></div>
+                <div class="line"></div>
+            </div>
+            <div class="col-md-4" style="padding-left: 3vw;">
+                <h1>Boston Women’s Heritage Trail</h1>
+                <p><br>Since 1989, the Boston Women’s Heritage Trail (BWHT) has worked to restore women to their rightful place in the history of Boston and in the school curriculum by uncovering, chronicling, and disseminating information about the women who have made lasting contributions to the City of Boston.</p>
 
 
-                    <div id="visexample" class="carousel slide" data-interval="2000" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#visexample" data-slide-to="0" class="active"></li>
-                            <li data-target="#visexample" data-slide-to="1"></li>
-                            <li data-target="#visexample" data-slide-to="2"></li>
-                            <li data-target="#visexample" data-slide-to="3"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="assets/image/w1.png" >
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/image/w2.png" >
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/image/w3.png" >
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/image/w4.png" >
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
+
+
+                <div id="visexample" class="carousel slide" data-interval="2000" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#visexample" data-slide-to="0" class="active"></li>
+                        <li data-target="#visexample" data-slide-to="1"></li>
+                        <li data-target="#visexample" data-slide-to="2"></li>
+                        <li data-target="#visexample" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="assets/image/w1.png" >
+                            <div class="carousel-caption d-none d-md-block">
                             </div>
                         </div>
-                        <a class="carousel-control-prev" href="#visexample" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#visexample" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="assets/image/w2.png" >
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="assets/image/w3.png" >
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="assets/image/w4.png" >
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
                     </div>
-
-
+                    <a class="carousel-control-prev" href="#visexample" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#visexample" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
+
+
             </div>
-            <div style="height:50px"></div>
-            <div class="line"></div>
-            <div style="height:50px"></div>
-            <div>
-                <h1>Tell A Story</h1>
-                <p><br>This is some filler text of information regarding form and uploading.<br><b>This part still needs to be completed</b></p>
-            </div>
-            <div style="height:50px"></div>
-            <div class="line"></div>
-            <div style="height:50px"></div>
-            <div class="right">
-                <p><b>Bibliography</b><br><br>
-                    Associated Press “On Columbus Day, statue in Providence vandalized: ‘Stop celebrating genocide’” Oct. 14, 2019<br>
+        </div>
+        <div style="height:50px"></div>
+        <div class="line"></div>
+        <div style="height:50px"></div>
+        <div>
+            <h1>Tell A Story</h1>
+            <p><br>This is some filler text of information regarding form and uploading.<br><b>This part still needs to be completed</b></p>
+        </div>
+        <div style="height:50px"></div>
+        <div class="line"></div>
+        <div style="height:50px"></div>
+        <div class="right">
+            <p><b>Bibliography</b><br><br>
+                Associated Press “On Columbus Day, statue in Providence vandalized: ‘Stop celebrating genocide’” Oct. 14, 2019<br>
 
-                    Giaimo, Cara “College Students Are Annotating Their Campus Monuments With Notes on Slavery” in Atlasobscura Dec 14, 2015<br>
+                Giaimo, Cara “College Students Are Annotating Their Campus Monuments With Notes on Slavery” in Atlasobscura Dec 14, 2015<br>
 
-                    Kalinowska, M. (2012). Monuments of memory: Defensive mechanisms of the collective psyche and their manifestation in the memorialization process. Journal of Analytical Psychology, 57(4), 425-444.<br>
-                    MacFarquhar Neil Charlottesville Lawsuit Puts Rising Intolerance on Trial in New York Times, Oct. 28, 2019<br>
+                Kalinowska, M. (2012). Monuments of memory: Defensive mechanisms of the collective psyche and their manifestation in the memorialization process. Journal of Analytical Psychology, 57(4), 425-444.<br>
+                MacFarquhar Neil Charlottesville Lawsuit Puts Rising Intolerance on Trial in New York Times, Oct. 28, 2019<br>
 
-                    Nelson, L. (2018). Object Lesson: Monuments and Memory in Charlottesville. Buildings & Landscapes: Journal of the Vernacular Architecture Forum, 25, 18-19<br>
+                Nelson, L. (2018). Object Lesson: Monuments and Memory in Charlottesville. Buildings & Landscapes: Journal of the Vernacular Architecture Forum, 25, 18-19<br>
 
-                    Tsai, G. (2016). The Morality of State Symbolic Power. Social Theory and Practice, 42(2), 318-342
-                </p>
-            </div>
+                Tsai, G. (2016). The Morality of State Symbolic Power. Social Theory and Practice, 42(2), 318-342
+            </p>
+        </div>
         </div>
 
 
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        <script src="./js/map.js"></script>
-        <script src="./js/visualeffects.js"></script>
-        <script src="./js/responsive.js"></script>
+
+
+
+
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/d3-tip.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="./js/visualeffects.js"></script>
+    <script src="./js/responsive.js"></script>
     </body>
 </html>

@@ -1,13 +1,13 @@
-var start = 1930;
-var end = 2010;
+var start = 1600;
+var end = 2019;
 
 //https://jqueryui.com/slider/#range
 $( function() {
     $( "#slider-range" ).slider({
         range: true,
-        min: 1930,
-        max: 2010,
-        values: [ 1930, 2010 ],
+        min: 1600,
+        max: 2019,
+        values: [ 1600, 2019 ],
         slide: function( event, ui ) {
             $( "#range" ).val( ui.values[0] + " - " + ui.values[1] );
             start = ui.values[0];
@@ -73,7 +73,7 @@ function updatemap(start, end){
     
     
     var timefilter = statusfilter.filter(function(d) { 
-        return d.YearMonumentalized >= start && d.YearMonumentalized <= end;
+        return (d.YearMonumentalized >= start && d.YearMonumentalized <= end) || d.YearMonumentalized == "";
     })
 
     console.log(timefilter);
@@ -106,8 +106,8 @@ function updatemap(start, end){
         var mapbackgroundstart = "<img src='assets/image/map";
         var mapbackgroundfinish = ".jpg' id='responsive-map' alt='old boston map'>";
         //console.log(mapbackgroundstart + 2013 + mapbackgroundfinish)
-        if(d.YearMonumentalized > 2013){
-            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 2013 + mapbackgroundfinish;
+        if(d.YearMonumentalized <= 1850 && d.YearMonumentalized !== ""){
+            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1780 + mapbackgroundfinish;
             responsivemap();
         } else if (d.YearMonumentalized <= 2013 && d.YearMonumentalized > 1970){
             document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1970 + mapbackgroundfinish;
@@ -128,7 +128,7 @@ function updatemap(start, end){
             document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1850 + mapbackgroundfinish;
             responsivemap();
         } else {
-            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1780 + mapbackgroundfinish;
+            document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 2013 + mapbackgroundfinish;
             responsivemap();
         };
 
@@ -257,19 +257,27 @@ function updatemap(start, end){
         .enter()
         .append( "path" )
         .attr( "fill", function(d){
-        if(d.Zipcode < 2000){
-            return "white";
+        if(d.Gender == "female"){
+            return "red";
+        } else if (d.Gender == "male"){
+            return "blue";
+        } else if (d.Gender == ""){
+            return "gray";
         } else {
-            return "#000000";
+            return "white";
         }
     })
         .attr( "opacity", 0.8 )
-        .attr("stroke-width", 15)
+        .attr("stroke-width", 0.01)
         .attr( "stroke", function(d){
-        if(d.Zipcode < 2000){
-            return "white";
+        if(d.Gender == "female"){
+            return "red";
+        } else if (d.Gender == "male"){
+            return "blue";
+        } else if (d.Gender == ""){
+            return "gray";
         } else {
-            return "#000000";
+            return "white";
         }
     })
         .attr( "d", geoPath)
