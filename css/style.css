@@ -1,7 +1,7 @@
 /* BODY */
 
 body {
-    background-color: #f2e2c7 !important;
+    background-color: #DDDBD7 !important;
 }
 
 div.section {
@@ -28,7 +28,7 @@ p,
 a,
 form{
     font-family: 'Roboto', sans-serif;
-    color: #ADA07C !important;
+    color: darkslategrey !important;
     font-size: 12px !important;
     font-weight: 300 !important;
     text-align: left;
@@ -63,7 +63,7 @@ margin-bottom: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
     height: 1px;
-    background: #ADA07C; 
+    background: darkslategrey ; 
 }
 
 a.hyprtxt{

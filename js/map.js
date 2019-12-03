@@ -213,7 +213,7 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
         Tooltip
             .html(tip)
             .style("left", (d3.mouse(this)[0]*0.98-150) + "px")
-            .style("top", (d3.mouse(this)[1])*0.85-80 + "px")
+            .style("top", (d3.mouse(this)[1])*0.85-150 + "px")
             .transition()
             .duration(300)
             .style("opacity", 1);
@@ -335,12 +335,12 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
             return "orange";
         }
     })
-        .attr( "opacity", 0.8 )
+        .attr( "opacity", 0.5 )
         .attr("stroke-width", function(d){
         if(d.Gender == "female"){
-            return 10;
+            return 50;
         } else if (d.Gender == "male"){
-            return 2;
+            return 10;
         } else if (d.Gender == ""){
             return 0.01;
         } else {
