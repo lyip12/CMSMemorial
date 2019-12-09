@@ -2,6 +2,7 @@
 
 body {
     background-color: #DDDBD7 !important;
+    font-family: 'Roboto', sans-serif !mportant;
 }
 
 div.section {
@@ -11,14 +12,22 @@ div.section {
 /* TEXT */
 
 h1 {
-    font-family: 'Roboto', sans-serif !important;
-    color: #8b9487 !important;
-    font-size: 48px !important;
+    margin-top: -3px !important;
+    color: black;
+    font-size: 64px !important;
     font-weight: 700 !important;
+    line-height: 56px !important;
+}
+
+h3 {
+    margin-top: -4px !important;
+    color: white;
+    font-size: 40px !important;
+    font-weight: 700 !important;
+    line-height: 40px !important;
 }
 
 h5 {
-    font-family: 'Roboto', sans-serif;
     color: #d1a380;
     font-size: 24px !important;
     font-weight: 700 !important;
@@ -27,9 +36,9 @@ h5 {
 p,
 a,
 form{
-    font-family: 'Roboto', sans-serif;
-    color: darkslategrey !important;
+    color: black;
     font-size: 12px !important;
+    line-height: 16px !important;
     font-weight: 300 !important;
     text-align: left;
 }
