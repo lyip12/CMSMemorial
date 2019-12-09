@@ -24,117 +24,158 @@
 
     </head>
     <body>
-        <div class="cover" style="background-image: url('/assets/image/cover2.png');">
-            <div style="height:100px"></div>
-            <div class="row">
-                <div class="col col-md-11">
-                    <p class="right" style="color: #a3a3a3;">
-                        <b>CMS.633/833 Digital Humanities</b><br>
-                        Comparative Media Studies || MIT || Fall 2019<br>
-                        Anna Ivanov || Karyn Pugliese || Lucy Yip || Meesh Zucker
-                    </p>
-                    <div class="line"></div>
-                </div>
-                <div class="col col-md-1"></div>
-            </div>
+
+        <div id = "cd-vertical-nav">
+            <ul>
+                <li>
+                    <a href="#section1" data-number="1">
+                        <span class="cd-dot"></span>
+                        <span class="cd-label">Intro</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#section2" data-number="2">
+                        <span class="cd-dot"></span>
+                        <span class="cd-label">Map</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#section3" data-number="3">
+                        <span class="cd-dot"></span>
+                        <span class="cd-label">Section 3</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#section4" data-number="4">
+                        <span class="cd-dot"></span>
+                        <span class="cd-label">Section 4</span>
+                    </a>
+                </li>
+            </ul>
         </div>
 
-        <div class="parallax" style="background-image: url('/assets/image/cover.png');">
-            <div style="height:50px"></div>
-            <div class="row">
-                <div class="col col-md-1"></div>
-                <div class="col col-md-4">
-                    <h1 style="margin-left: -0.2vw;">MONUMENTAL</h1>
-                    <h3 style="margin-left: -0.15vw;">MEMORY IN SPACE</h3>
-                </div>
-                <div class="col col-md-2" style="padding-right: 50px;">
-                    <div style="margin-right: 4vw;">
-                        <p><em>“We recognize our representations of space as value-laden guides to the world as we perceive it” -David J. Bodenhamer, “The Potential of Spatial Humanities”</em></p>
-                    </div>
-                </div>
-                <div class="col col-md-4">
-                    <p style="text-align: justify;"><b>Monuments venerate a person or commemorate an event, relevant to a social group’s collective memory, history.</b><br><br>In recent years communities are rethinking who and what they have memorialized, and if in fact the monuments are commemorating intolerance, violence and hate when viewed through a fuller understanding of history. Some memorials are being rethought, altered or removed. Once a memorial is removed, so is all visual evidence of the controversy. This project preserves the memory, and journey of the debates, controversies and changes. It opens up new ways to imagine the how memory and history is used in the public space, and challenges people to ask whose memory and whose history is preserved? The geographic scope of this project is limited to Boston. </p>
-                </div>
-                <div class="col col-md-1"></div>
-            </div>
-            <div style="height:40px"></div>
-            <div class="row">
-                <div class="col col-md-1"></div>
-                <div class="col col-md-11"><div class="line"></div></div>
-            </div>
-        </div>
-        <div class="contain" style="background-image: url('/assets/image/contain1.png'); z-index: -1;">
-            <div style="height:50px"></div>
-            <div class="row">
-                <div class="col col-md-1"></div>
-                <div class="col col-md-3">
-                    <div style="padding: 3px 4vw 0 0;">
-                        <div>
-                            <p>The interactive map on the right allows filtering of current monumental database based on user preferences. The geologcial map allows the monuments to be placed in their historical context, and displays relevant information on the left.</p>
-                        </div>
-                        <b>Record Category</b>
-                        <form id="categoryfilter" data-toggle="buttons">
-                            <div class="btn-group btn-group-toggle">
-                                <label class="btn btn-dark active"><input type="radio" name="category" autocomplete="" checked value="all">All</label>
-                                <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Building">Buildings</label>
-                                <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Statue">Statues</label>
-                                <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Object">Object</label>
-                                <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Plaque/Historic Marker">Plaques/Historic</label>
-                            </div>
-                        </form>
-                        <br>
-                        <b>Establishment Type</b>
-                        <form id="typefilter" data-toggle="buttons">
-                            <div class="btn-group btn-group-toggle">
-                                <label class="btn btn-dark active"><input type="radio" name="type" autocomplete="" checked value="all">All</label>
-                                <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Community">Community</label>
-                                <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="National">National</label>
-                                <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Local">Local</label>
-                                <!-- <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Women's Heritage Trail">Women's Heritage Trail</label> -->
-                            </div>
-                        </form>
-                        <br>
-                        <b>Current Status</b>
-                        <form id="statusfilter" data-toggle="buttons">
-                            <div class="btn-group btn-group-toggle">
-                                <label class="btn btn-dark active"><input type="radio" name="status" autocomplete="" checked value="all">All</label>
-                                <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Original Location">Original Location</label>
-                                <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Relocated">Relocated</label>
-                                <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Removed">Removed</label>
-                            </div>
-                        </form>
-                        <br>
-                        <p> Date Range: 
-                            <input type="text" id="range" readonly>
+
+
+
+        <div class="nav-section" id = "section1">
+            <div class="cover" style="background-image: url('/assets/image/cover2.png');">
+                <div style="height:100px"></div>
+                <div class="row">
+                    <div class="col col-md-11">
+                        <p class="right" style="color: #a3a3a3;">
+                            <b>CMS.633/833 Digital Humanities</b><br>
+                            Comparative Media Studies || MIT || Fall 2019<br>
+                            Anna Ivanov || Karyn Pugliese || Lucy Yip || Meesh Zucker
                         </p>
-                        <div id="slider-range" style="margin: 0px 8px 10px 8px"></div>
-                        <form id="timefilter" data-toggle="buttons">
-                            <div class="btn-group btn-group-toggle">
-                                <label class="btn btn-dark active"><input type="radio" name="time" autocomplete="" checked value="yes">Include Non-Dated</label>
-                                <label class="btn btn-light"><input type="radio" name="time" autocomplete="off" value="no">Does Not Include Non-Dated</label>
-                            </div>
-                        </form>
-                        <p class="blue"> <br>*Map on left is approximated to existing data</p>
-
-                        <p>*Built Year filter and tag filter yet to be fully implemented due to data-formatting error</p>
-                        <div style="height:25px"></div>
                         <div class="line"></div>
-                        <div style="height:50px"></div>
-                        <div id="maptext"><p>Hover above individual data entry on the map to display establish name, and click on individual data entry for more information</p></div>
                     </div>
+                    <div class="col col-md-1"></div>
                 </div>
+            </div>
 
-
-                <div class="col col-md-8">
-                    <div id="map"></div>
-                    <div id="mapbackground">
-                        <img src="assets/image/map2013.png" id="responsive-map" alt="old boston map">
+            <div class="parallax" style="background-image: url('/assets/image/cover.png');">
+                <div style="height:50px"></div>
+                <div class="row">
+                    <div class="col col-md-1"></div>
+                    <div class="col col-md-4">
+                        <h1 style="margin-left: -0.2vw;">MONUMENTAL</h1>
+                        <h3 style="margin-left: -0.15vw;">MEMORY IN SPACE</h3>
                     </div>
+                    <div class="col col-md-2" style="padding-right: 50px;">
+                        <div style="margin-right: 4vw;">
+                            <p><em>“We recognize our representations of space as value-laden guides to the world as we perceive it” -David J. Bodenhamer, “The Potential of Spatial Humanities”</em></p>
+                        </div>
+                    </div>
+                    <div class="col col-md-4">
+                        <p style="text-align: justify;"><b>Monuments venerate a person or commemorate an event, relevant to a social group’s collective memory, history.</b><br><br>In recent years communities are rethinking who and what they have memorialized, and if in fact the monuments are commemorating intolerance, violence and hate when viewed through a fuller understanding of history. Some memorials are being rethought, altered or removed. Once a memorial is removed, so is all visual evidence of the controversy. This project preserves the memory, and journey of the debates, controversies and changes. It opens up new ways to imagine the how memory and history is used in the public space, and challenges people to ask whose memory and whose history is preserved? The geographic scope of this project is limited to Boston. </p>
+                    </div>
+                    <div class="col col-md-1"></div>
                 </div>
-            </div>  
-            <div style="height:50px"></div>
-            <div class="line"></div>
+                <div style="height:40px"></div>
+                <div class="row">
+                    <div class="col col-md-1"></div>
+                    <div class="col col-md-11"><div class="line"></div></div>
+                </div>
+            </div>
         </div>
+
+        <div class="nav-section" id = "section2">
+            <div class="contain" style="background-image: url('/assets/image/contain1.png'); z-index: -1;">
+                <div style="height:50px"></div>
+                <div class="row">
+                    <div class="col col-md-1"></div>
+                    <div class="col col-md-3">
+                        <div style="padding: 3px 4vw 0 0;">
+                            <div>
+                                <p>The interactive map on the right allows filtering of current monumental database based on user preferences. The geologcial map allows the monuments to be placed in their historical context, and displays relevant information on the left.</p>
+                            </div>
+                            <b>Record Category</b>
+                            <form id="categoryfilter" data-toggle="buttons">
+                                <div class="btn-group btn-group-toggle">
+                                    <label class="btn btn-dark active"><input type="radio" name="category" autocomplete="" checked value="all">All</label>
+                                    <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Building">Buildings</label>
+                                    <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Statue">Statues</label>
+                                    <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Object">Object</label>
+                                    <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Plaque/Historic Marker">Plaques/Historic</label>
+                                </div>
+                            </form>
+                            <br>
+                            <b>Establishment Type</b>
+                            <form id="typefilter" data-toggle="buttons">
+                                <div class="btn-group btn-group-toggle">
+                                    <label class="btn btn-dark active"><input type="radio" name="type" autocomplete="" checked value="all">All</label>
+                                    <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Community">Community</label>
+                                    <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="National">National</label>
+                                    <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Local">Local</label>
+                                    <!-- <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Women's Heritage Trail">Women's Heritage Trail</label> -->
+                                </div>
+                            </form>
+                            <br>
+                            <b>Current Status</b>
+                            <form id="statusfilter" data-toggle="buttons">
+                                <div class="btn-group btn-group-toggle">
+                                    <label class="btn btn-dark active"><input type="radio" name="status" autocomplete="" checked value="all">All</label>
+                                    <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Original Location">Original Location</label>
+                                    <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Relocated">Relocated</label>
+                                    <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Removed">Removed</label>
+                                </div>
+                            </form>
+                            <br>
+                            <p> Date Range: 
+                                <input type="text" id="range" readonly>
+                            </p>
+                            <div id="slider-range" style="margin: 0px 8px 10px 8px"></div>
+                            <form id="timefilter" data-toggle="buttons">
+                                <div class="btn-group btn-group-toggle">
+                                    <label class="btn btn-dark active"><input type="radio" name="time" autocomplete="" checked value="yes">Include Non-Dated</label>
+                                    <label class="btn btn-light"><input type="radio" name="time" autocomplete="off" value="no">Does Not Include Non-Dated</label>
+                                </div>
+                            </form>
+                            <p class="blue"> <br>*Map on left is approximated to existing data</p>
+
+                            <p>*Built Year filter and tag filter yet to be fully implemented due to data-formatting error</p>
+                            <div style="height:25px"></div>
+                            <div class="line"></div>
+                            <div style="height:50px"></div>
+                            <div id="maptext"><p>Hover above individual data entry on the map to display establish name, and click on individual data entry for more information</p></div>
+                        </div>
+                    </div>
+
+
+                    <div class="col col-md-8">
+                        <div id="map"></div>
+                        <div id="mapbackground">
+                            <img src="assets/image/map2013.png" id="responsive-map" alt="old boston map">
+                        </div>
+                    </div>
+                </div>  
+                <div style="height:50px"></div>
+                <div class="line"></div>
+            </div>
+        </div>    
+
+
+
         <div style="height:50px"></div>
 
         <div class="section">
@@ -371,8 +412,9 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/d3.min.js"></script>
         <script src="js/d3-tip.js"></script>
-        <script src="./js/map.js"></script>
-        <script src="./js/visualeffects.js"></script>
-        <script src="./js/responsive.js"></script>
+        <script src="/js/map.js"></script>
+        <script src="/js/visualeffects.js"></script>
+        <script src="/js/responsive.js"></script>
+        <script src="/js/dots.js"></script>
     </body>
 </html>
