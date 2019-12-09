@@ -227,6 +227,13 @@ td{
     background-size: cover;
 }
 
+.contain {
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
 .btn-secondary {
     background-color: #8b9487 !important;
     border: none !important;

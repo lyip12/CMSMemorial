@@ -57,130 +57,89 @@
                 </div>
                 <div class="col col-md-1"></div>
             </div>
-
-
             <div style="height:40px"></div>
             <div class="row">
                 <div class="col col-md-1"></div>
                 <div class="col col-md-11"><div class="line"></div></div>
             </div>
         </div>
-        <div style="height:50px"></div>
+        <div class="contain" style="background-image: url('/assets/image/contain1.png'); z-index: -1;">
+            <div style="height:50px"></div>
+            <div class="row">
+                <div class="col col-md-1"></div>
+                <div class="col col-md-3">
+                    <div style="padding: 3px 4vw 0 0;">
+                        <div>
+                            <p>Click on the filters below to filter information</p>
+                        </div>
+                        <b>Record Category</b>
+                        <form id="categoryfilter" data-toggle="buttons">
+                            <div class="btn-group btn-group-toggle">
+                                <label class="btn btn-dark active"><input type="radio" name="category" autocomplete="" checked value="all">All</label>
+                                <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Building">Buildings</label>
+                                <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Statue">Statues</label>
+                                <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Object">Object</label>
+                                <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Plaque/Historic Marker">Plaques/Historic</label>
+                            </div>
+                        </form>
+                        <br>
+                        <b>Establishment Type</b>
+                        <form id="typefilter" data-toggle="buttons">
+                            <div class="btn-group btn-group-toggle">
+                                <label class="btn btn-dark active"><input type="radio" name="type" autocomplete="" checked value="all">All</label>
+                                <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Community">Community</label>
+                                <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="National">National</label>
+                                <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Local">Local</label>
+                                <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Women's Heritage Trail">Women's Heritage Trail</label>
+                            </div>
+                        </form>
+                        <br>
+                        <b>Current Status</b>
+                        <form id="statusfilter" data-toggle="buttons">
+                            <div class="btn-group btn-group-toggle">
+                                <label class="btn btn-dark active"><input type="radio" name="status" autocomplete="" checked value="all">All</label>
+                                <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Original Location">Original Location</label>
+                                <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Relocated">Relocated</label>
+                                <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Removed">Removed</label>
+                            </div>
+                        </form>
+                        <br>
+                        <p> Date Range: 
+                            <input type="text" id="range" readonly>
+                        </p>
+                        <div id="slider-range" style="margin: 0px 8px 10px 8px"></div>
+                        <form id="timefilter" data-toggle="buttons">
+                            <div class="btn-group btn-group-toggle">
+                                <label class="btn btn-dark active"><input type="radio" name="time" autocomplete="" checked value="yes">Include Non-Dated</label>
+                                <label class="btn btn-light"><input type="radio" name="time" autocomplete="off" value="no">Does Not Include Non-Dated</label>
+                            </div>
+                        </form>
+                        <p class="blue"> <br>*Map on left is approximated to existing data</p>
 
-
-        <div class="row">
-            <div class="col col-md-1"></div>
-            <div class="col col-md-3">
-                <div style="padding: 3px 4vw 0 0;">
-                    <div>
-                        <p>Click on the filters below to filter information</p>
+                        <p>*Built Year filter and tag filter yet to be fully implemented due to data-formatting error</p>
+                        <div style="height:25px"></div>
+                        <div class="line"></div>
+                        <div style="height:50px"></div>
+                        <div id="maptext"><p>Hover above individual data entry on the map to display establish name, and click on individual data entry for more information</p></div>
                     </div>
-                    <b>Record Category</b>
-                    <form id="categoryfilter" data-toggle="buttons">
-                        <div class="btn-group btn-group-toggle">
-                            <label class="btn btn-dark active"><input type="radio" name="category" autocomplete="" checked value="all">All</label>
-                            <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Building">Buildings</label>
-                            <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Statue">Statues</label>
-                            <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Object">Object</label>
-                            <label class="btn btn-light"><input type="radio" name="category" autocomplete="off" value="Plaque/Historic Marker">Plaques/Historic</label>
-                        </div>
-                    </form>
-                    <br>
-                    <b>Establishment Type</b>
-                    <form id="typefilter" data-toggle="buttons">
-                        <div class="btn-group btn-group-toggle">
-                            <label class="btn btn-dark active"><input type="radio" name="type" autocomplete="" checked value="all">All</label>
-                            <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Community">Community</label>
-                            <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="National">National</label>
-                            <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Local">Local</label>
-                            <label class="btn btn-light"><input type="radio" name="type" autocomplete="off" value="Women's Heritage Trail">Women's Heritage Trail</label>
-                        </div>
-                    </form>
-                    <br>
-                    <b>Current Status</b>
-                    <form id="statusfilter" data-toggle="buttons">
-                        <div class="btn-group btn-group-toggle">
-                            <label class="btn btn-dark active"><input type="radio" name="status" autocomplete="" checked value="all">All</label>
-                            <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Original Location">Original Location</label>
-                            <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Relocated">Relocated</label>
-                            <label class="btn btn-light"><input type="radio" name="status" autocomplete="off" value="Removed">Removed</label>
-                        </div>
-                    </form>
-                    <br>
-                    <p> Date Range: 
-                        <input type="text" id="range" readonly>
-                    </p>
-                    <div id="slider-range" style="margin: 0px 8px 10px 8px"></div>
-                    <form id="timefilter" data-toggle="buttons">
-                        <div class="btn-group btn-group-toggle">
-                            <label class="btn btn-dark active"><input type="radio" name="time" autocomplete="" checked value="yes">Include Non-Dated</label>
-                            <label class="btn btn-light"><input type="radio" name="time" autocomplete="off" value="no">Does Not Include Non-Dated</label>
-                        </div>
-                    </form>
-                    <p class="blue"> <br>*Map on left is approximated to existing data</p>
-
-                    <p>*Built Year filter and tag filter yet to be fully implemented due to data-formatting error</p>
-                    <div style="height:25px"></div>
-                    <div class="line"></div>
-                    <div style="height:50px"></div>
-                    <div id="maptext"><p>Hover above individual data entry on the map to display establish name, and click on individual data entry for more information</p></div>
                 </div>
-            </div>
 
 
-            <div class="col col-md-8" style="margin: 0px !important; padding: 0px !important;">
-                <div id="map"></div>
-                <div id="mapbackground">
-                    <img src="assets/image/map2013.jpg" id="responsive-map" alt="old boston map">
+                <div class="col col-md-8">
+                    <div id="map"></div>
+                    <div id="mapbackground">
+                        <img src="assets/image/map2013.jpg" id="responsive-map" alt="old boston map">
+                    </div>
                 </div>
-                <div style="height:50px"></div>
-            </div>
-        </div>  
-
-
-
-
+            </div>  
+            <div style="height:50px"></div>
+            <div class="line"></div>
+        </div>
+        <div style="height:50px"></div>
 
         <div class="section">
             <div class="row">
-                <div class="col col-md-6" style="padding-right: 10vw;">
-                </div>
-                <div class="col col-md-2" style="padding-left: 3vw;">
-                    <div class="line"></div>
-                    <div style="height:10px"></div>
-                    <p>
-                        <br>Monuments venerate a person or commemorate an event, relevant to a social group’s collective memory, history. <br><br>In recent years communities are rethinking who and what they have memorialized, and if in fact the monuments are commemorating intolerance, violence and hate when viewed through a fuller understanding of history.<br><br>
-                    </p>
-                    <div class="line"></div>
-                </div>
-                <div class="col col-md-2" style="padding-left: 3vw;">
-                    <div class="line"></div>
-                    <div style="height:10px"></div>
-                    <p>
-                        <br>Some memorials are being rethought, altered or removed. Once a memorial is removed, so is all visual evidence of the controversy. This project preserves the memory, and journey of the debates, controversies and changes. The geographic area is limited to Boston.<br><br>
-                    </p>
-                    <div class="line"></div>
-                </div>
-
-                <div class="col col-md-2" style="padding-left: 3vw; ">
-                    <p><b>This is a project from the Digital Humanities course at MITCMS. The course examines theory and practice of using computational methods in the emerging field of digital humanities. Develops an understanding of key digital humanities concepts such as data representation, digital archives, information visualization, and user interaction through the study of contemporary research in conjunction with working on real-world projects for scholarly, educational, and public needs.</b></p>
-                </div>
-            </div>
-            <div style="height:50px"></div>
-            <div class="line"></div>
-            <div style="height:50px"></div>
-
-            <p>The project began by thinking about personal memories embed meaning into objects and moved into a discussion of how objects are used to build collective memory, a collective history, a sense of progression to the present and a common vision for the future. Public symbols such as monuments, landmarks are generally built by the state and can be reflective or even manipulative in building a story. They create belonging and collectivity.  They can also exclude and alienate.<br><br>In recent years there has been a revisiting of monuments in the US, the most publicized in Charlottesville, where hundreds of white supremacists and Nazis staged a torch-lit march that set off a weekend of violence in 2017. The rally was originally organized to protest the removal of a statue of Robert E. Lee from Emancipation Park and drew about 600 participants who later clashed with protesters form the left, resulting in several injuries and the death of a young woman.  Professor of architectural history Louis Nelson notes the confederate monuments, built in the 1920s: “They are victory monuments, unflinching testaments to the collapse of Reconstruction and the re-establishment of white supremacy. And as public art they inscribed that victory into the fabric of the city.<br><br>Malgorzata Kalinowska who studies psychology and memory notes monuments allow “individuals living within a society to participate in a shared cultural space and contain their individual historical experience within its particular set of symbols and signs.” Louis Nelson states that monuments can also be carefully constructed to promote free and equal citizenship “for the state to speak out in favor of ideas of equality and tolerance and condemn those of inequality and intolerance.”<br><br><b>In Boston, citizens are also rethinking public space, memory and inclusion. A confederate monument was removed from public space, in the wake of Charlottesville.  What does it say about public memory that of more than 70 statues in public spaces only four honour women?  A bright pink piece of paper taped to a monument in front of the university’s Wadsworth House reminds us of who is missing from public history and what stories are being hidden from collective memory. It reads: “This house was also a place of enslavement. Among those held in bondage in this building were: Titus, Venus, Juba, Bilhah.” As it turns out the note came from The Harvard and Slavery Project which began in 2007 to reclaim this history.  Similarly can the annual vandalizing of statues of Columbus, with red paint and slogans of genocide be understood as subversive discourse in a public narrative that excludes Indigenous peoples and colonialism?  Is there irony in a monument memorializing the Massachusetts 54th Regiment, it’s first all African- American regiment, should be named for Colonel Robert Gould Shaw a white man? Our project looks at how Boston is using space, particularly gender and race in public memory, and asks how might public the space be reformed to build a more inclusive collective memory.</b>
-            </p>
-            <div style="height:50px"></div>
-            <div class="line"></div>
-            <div style="height:50px"></div>
-
-            <div class="line"></div>
-            <div style="height:50px"></div>
-
-            <div class="row">
-                <div class="col col-md-2" style="padding-right: 3vw;">
+                <div class="col col-md-2">
                     <div class="line"></div>
                     <div style="height:20px"></div>
                     <h5>Downtown</h5>
@@ -188,7 +147,7 @@
                     <div style="height:10px"></div>
                     <div class="line"></div>
                 </div>
-                <div class="ccol ol-md-2" style="padding-right: 3vw;">
+                <div class="col ol-md-2">
                     <div class="line"></div>
                     <div style="height:20px"></div>
                     <h5>Beacon Hill</h5>
@@ -196,7 +155,7 @@
                     <div style="height:10px"></div>
                     <div class="line"></div>
                 </div>
-                <div class="col col-md-2" style="padding-right: 3vw;">
+                <div class="col col-md-2">
                     <div class="line"></div>
                     <div style="height:20px"></div>
                     <h5>Backbay West</h5>
@@ -204,7 +163,7 @@
                     <div style="height:10px"></div>
                     <div class="line"></div>
                 </div>
-                <div class="col col-md-2" style="padding-right: 3vw;">
+                <div class="col col-md-2">
                     <div class="line"></div>
                     <div style="height:20px"></div>
                     <h5>Backbay East</h5>
@@ -212,7 +171,7 @@
                     <div style="height:10px"></div>
                     <div class="line"></div>
                 </div>
-                <div class="col col-md-4" style="padding-left: 3vw;">
+                <div class="col col-md-4">
                     <h1>Boston Women’s Heritage Trail</h1>
                     <p><br>Since 1989, the Boston Women’s Heritage Trail (BWHT) has worked to restore women to their rightful place in the history of Boston and in the school curriculum by uncovering, chronicling, and disseminating information about the women who have made lasting contributions to the City of Boston.</p>
 
@@ -261,138 +220,139 @@
 
                 </div>
             </div>
-            <div style="height:50px"></div>
-            <div class="line"></div>
-            <div style="height:50px"></div>
-            <div class="right">
-                <h1>Conversation Forum</h1>
-            </div>
-            <div class="row">
-                <div class="col col col-md-2">
-                    <div style="padding: 20px; background: white;">
-                        <p><b style="font-size: 14px !important; color: darkslategray;">This does not seem right...</b><br></p>
-                        <p style="font-size: 10px !important; line-height: 100%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur lobortis nunc id dapibus. Mauris sit amet commodo dui, id accumsan ante. Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex. Integer sed ex metus. Duis eget semper tortor, in condimentum dolor...<br>
-                        </p>
-                        <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#memorial #sexism</p>
-                        <form id="statusfilter" data-toggle="buttons">
-                            <div class="btn-group btn-group-toggle">
-                                <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col col-md-2">
-                    <div style="padding: 20px; background: #f5f1ed;">
-                        <p><b style="font-size: 14px !important; color: darkslategray;">Continuing from our conversation from 08/22/2018</b><br></p>
-                        <p style="font-size: 10px !important; line-height: 100%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur lobortis nunc id dapibus. Mauris sit amet commodo dui, id accumsan ante. Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex...<br>
-                        </p>
-                        <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#memorial #sexism</p>
-                        <form id="statusfilter" data-toggle="buttons">
-                            <div class="btn-group btn-group-toggle">
-                                <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col col-md-2">
-                    <div style="padding: 20px; background: #e3ddd8;">
-                        <p><b style="font-size: 14px !important; color: darkslategray;">Look at What I Found!</b><br></p>
-                        <p style="font-size: 10px !important; line-height: 100%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur lobortis nunc id dapibus. Mauris sit amet commodo dui, id accumsan ante. Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex...<br>
-                        </p>
-                        <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#tags</p>
-                        <form id="statusfilter" data-toggle="buttons">
-                            <div class="btn-group btn-group-toggle">
-                                <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col col-md-2">
-                    <div style="padding: 20px; background: #d9d2cc;">
-                        <p><b style="font-size: 14px !important; color: darkslategray;">New Memorial Proposal 18/19</b><br></p>
-                        <p style="font-size: 10px !important; line-height: 100%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur lobortis nunc id dapibus. Mauris sit amet commodo dui, id accumsan ante. Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex. Integer sed ex metus. Duis eget semper tortor, in condimentum dolor...<br>
-                        </p>
-                        <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#memorial</p>
-                        <form id="statusfilter" data-toggle="buttons">
-                            <div class="btn-group btn-group-toggle">
-                                <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col col-md-2">
-                    <div style="padding: 20px; background: #c9c1b9;">
-                        <p><b style="font-size: 14px !important; color: darkslategray;">Hmmm...</b><br></p>
-                        <p style="font-size: 10px !important; line-height: 100%;">Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex. Integer sed ex metus. Duis eget semper tortor, in condimentum dolor...<br>
-                        </p>
-                        <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#confusion</p>
-                        <form id="statusfilter" data-toggle="buttons">
-                            <div class="btn-group btn-group-toggle">
-                                <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col col-md-2">
-                    <div style="padding: 20px; background: #bdb4ac;">
-                        <p><b style="font-size: 14px !important; color: darkslategray;">Running out of things</b><br></p>
-                        <p style="font-size: 10px !important; line-height: 100%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur lobortis nunc id dapibus. Mauris sit amet commodo dui, id accumsan ante. Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex. Integer sed ex metus...<br>
-                        </p>
-                        <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#memory #tags</p>
-                        <form id="statusfilter" data-toggle="buttons">
-                            <div class="btn-group btn-group-toggle">
-                                <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
-                            </div>
-                        </form>
-                    </div>
+        </div>
+        <div style="height:50px"></div>
+        <div class="line"></div>
+        <div style="height:50px"></div>
+        <div class="right">
+            <h1>Conversation Forum</h1>
+        </div>
+        <div class="row">
+            <div class="col col col-md-2">
+                <div style="padding: 20px; background: white;">
+                    <p><b style="font-size: 14px !important; color: darkslategray;">This does not seem right...</b><br></p>
+                    <p style="font-size: 10px !important; line-height: 100%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur lobortis nunc id dapibus. Mauris sit amet commodo dui, id accumsan ante. Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex. Integer sed ex metus. Duis eget semper tortor, in condimentum dolor...<br>
+                    </p>
+                    <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#memorial #sexism</p>
+                    <form id="statusfilter" data-toggle="buttons">
+                        <div class="btn-group btn-group-toggle">
+                            <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div style="height:30px"></div>
-            <div class="right">
-                <form id="statusfilter" data-toggle="buttons">
-                    <div class="btn-group btn-group-toggle">
-                        <label class="btn btn-dark"><input type="radio" autocomplete="off" value="">Follow the conversations</label>
-                    </div>
-                </form>
+            <div class="col col-md-2">
+                <div style="padding: 20px; background: #f5f1ed;">
+                    <p><b style="font-size: 14px !important; color: darkslategray;">Continuing from our conversation from 08/22/2018</b><br></p>
+                    <p style="font-size: 10px !important; line-height: 100%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur lobortis nunc id dapibus. Mauris sit amet commodo dui, id accumsan ante. Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex...<br>
+                    </p>
+                    <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#memorial #sexism</p>
+                    <form id="statusfilter" data-toggle="buttons">
+                        <div class="btn-group btn-group-toggle">
+                            <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <div style="height:50px"></div>
-            <div class="line"></div>
-            <div style="height:50px"></div>
-
-
-            <div>
-                <h1>Tell A Story</h1>
-                <form action="/action_page.php">
-                    The Name of the Monument You Would Like to Input: <input type="text" value="Example Name">
-                    <br>Year Built: <input type="text" value="e.g. 1995">
-                    <br>Year Monumentalized if ever offically done so: <input type="text" value="e.g. 1995">
-                    <br>Ownership: <input type="text" value="org? personal?">
-                    <br>Controversies (if yes please specify): <input type="text" value="yes, ..."><br>
-                    <br>
-                    <input type="submit" value="Submit">
-                </form> 
-
-                <p><br>This is some filler text of information regarding form and uploading.<br><b>This part still needs to be completed</b></p>
+            <div class="col col-md-2">
+                <div style="padding: 20px; background: #e3ddd8;">
+                    <p><b style="font-size: 14px !important; color: darkslategray;">Look at What I Found!</b><br></p>
+                    <p style="font-size: 10px !important; line-height: 100%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur lobortis nunc id dapibus. Mauris sit amet commodo dui, id accumsan ante. Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex...<br>
+                    </p>
+                    <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#tags</p>
+                    <form id="statusfilter" data-toggle="buttons">
+                        <div class="btn-group btn-group-toggle">
+                            <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div style="height:50px"></div>
-            <div class="line"></div>
-            <div style="height:50px"></div>
-            <div class="right">
-                <p><b>Bibliography</b><br><br>
-                    Associated Press “On Columbus Day, statue in Providence vandalized: ‘Stop celebrating genocide’” Oct. 14, 2019<br>
-
-                    Giaimo, Cara “College Students Are Annotating Their Campus Monuments With Notes on Slavery” in Atlasobscura Dec 14, 2015<br>
-
-                    Kalinowska, M. (2012). Monuments of memory: Defensive mechanisms of the collective psyche and their manifestation in the memorialization process. Journal of Analytical Psychology, 57(4), 425-444.<br>
-                    MacFarquhar Neil Charlottesville Lawsuit Puts Rising Intolerance on Trial in New York Times, Oct. 28, 2019<br>
-
-                    Nelson, L. (2018). Object Lesson: Monuments and Memory in Charlottesville. Buildings & Landscapes: Journal of the Vernacular Architecture Forum, 25, 18-19<br>
-
-                    Tsai, G. (2016). The Morality of State Symbolic Power. Social Theory and Practice, 42(2), 318-342
-                </p>
+            <div class="col col-md-2">
+                <div style="padding: 20px; background: #d9d2cc;">
+                    <p><b style="font-size: 14px !important; color: darkslategray;">New Memorial Proposal 18/19</b><br></p>
+                    <p style="font-size: 10px !important; line-height: 100%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur lobortis nunc id dapibus. Mauris sit amet commodo dui, id accumsan ante. Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex. Integer sed ex metus. Duis eget semper tortor, in condimentum dolor...<br>
+                    </p>
+                    <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#memorial</p>
+                    <form id="statusfilter" data-toggle="buttons">
+                        <div class="btn-group btn-group-toggle">
+                            <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col col-md-2">
+                <div style="padding: 20px; background: #c9c1b9;">
+                    <p><b style="font-size: 14px !important; color: darkslategray;">Hmmm...</b><br></p>
+                    <p style="font-size: 10px !important; line-height: 100%;">Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex. Integer sed ex metus. Duis eget semper tortor, in condimentum dolor...<br>
+                    </p>
+                    <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#confusion</p>
+                    <form id="statusfilter" data-toggle="buttons">
+                        <div class="btn-group btn-group-toggle">
+                            <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col col-md-2">
+                <div style="padding: 20px; background: #bdb4ac;">
+                    <p><b style="font-size: 14px !important; color: darkslategray;">Running out of things</b><br></p>
+                    <p style="font-size: 10px !important; line-height: 100%;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi efficitur lobortis nunc id dapibus. Mauris sit amet commodo dui, id accumsan ante. Suspendisse dignissim diam nulla, at fringilla nisl scelerisque nec. Curabitur eget nisi ex. Integer sed ex metus...<br>
+                    </p>
+                    <p style="font-size: 10px !important; line-height: 100%; color: chocolate !important;">#memory #tags</p>
+                    <form id="statusfilter" data-toggle="buttons">
+                        <div class="btn-group btn-group-toggle">
+                            <label class="btn btn-light"><input type="radio" autocomplete="off" value="">+Conversation</label>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+        <div style="height:30px"></div>
+        <div class="right">
+            <form id="statusfilter" data-toggle="buttons">
+                <div class="btn-group btn-group-toggle">
+                    <label class="btn btn-dark"><input type="radio" autocomplete="off" value="">Follow the conversations</label>
+                </div>
+            </form>
+        </div>
+
+        <div style="height:50px"></div>
+        <div class="line"></div>
+        <div style="height:50px"></div>
+
+
+        <div>
+            <h1>Tell A Story</h1>
+            <form action="/action_page.php">
+                The Name of the Monument You Would Like to Input: <input type="text" value="Example Name">
+                <br>Year Built: <input type="text" value="e.g. 1995">
+                <br>Year Monumentalized if ever offically done so: <input type="text" value="e.g. 1995">
+                <br>Ownership: <input type="text" value="org? personal?">
+                <br>Controversies (if yes please specify): <input type="text" value="yes, ..."><br>
+                <br>
+                <input type="submit" value="Submit">
+            </form> 
+
+            <p><br>This is some filler text of information regarding form and uploading.<br><b>This part still needs to be completed</b></p>
+        </div>
+        <div style="height:50px"></div>
+        <div class="line"></div>
+        <div style="height:50px"></div>
+        <div class="right">
+            <p><b>Bibliography</b><br><br>
+                Associated Press “On Columbus Day, statue in Providence vandalized: ‘Stop celebrating genocide’” Oct. 14, 2019<br>
+
+                Giaimo, Cara “College Students Are Annotating Their Campus Monuments With Notes on Slavery” in Atlasobscura Dec 14, 2015<br>
+
+                Kalinowska, M. (2012). Monuments of memory: Defensive mechanisms of the collective psyche and their manifestation in the memorialization process. Journal of Analytical Psychology, 57(4), 425-444.<br>
+                MacFarquhar Neil Charlottesville Lawsuit Puts Rising Intolerance on Trial in New York Times, Oct. 28, 2019<br>
+
+                Nelson, L. (2018). Object Lesson: Monuments and Memory in Charlottesville. Buildings & Landscapes: Journal of the Vernacular Architecture Forum, 25, 18-19<br>
+
+                Tsai, G. (2016). The Morality of State Symbolic Power. Social Theory and Practice, 42(2), 318-342
+            </p>
+        </div>
+
 
 
 
