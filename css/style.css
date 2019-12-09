@@ -205,6 +205,7 @@ td{
 
 #responsive-map {  
     width: 100%;
+    opacity: 0.3;
     height: auto; 
 } 
 
@@ -214,13 +215,13 @@ td{
 } 
 
 .parallax {
-    /* The image used */
-    background-image: url("/assets/image/cover.png");
-
-    /* Set a specific height */
-
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cover {
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -230,4 +231,10 @@ td{
     background-color: #8b9487 !important;
     border: none !important;
     height: 30px;
+}
+
+.row,
+.col{
+    margin: 0px !important; 
+    padding: 0px !important;
 }

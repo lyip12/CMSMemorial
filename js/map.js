@@ -293,10 +293,10 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
 
 
     var albersProjection = d3.geoAlbers()
-    .scale(700000)
+    .scale(770000)
     .rotate( [71.057,0] )
     .center( [0, 42.4] )
-    .translate([680,-100]);
+    .translate([700,-300]);
 
     var geoPath = d3.geoPath()
     .projection( albersProjection );
@@ -310,7 +310,7 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
         .append("path")
         .data(neighborhoods_json.features )
         .attr( "fill", "#736a60" )
-        .attr("opacity", 0.2)
+        .attr("opacity", 0.1)
         .attr("stroke-width", 1)
         .attr( "stroke", "#CFC3B8")
         .attr( "d", geoPath );

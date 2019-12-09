@@ -3,7 +3,7 @@ responsivemap();
 function responsivemap(){
 
     var w = window.innerWidth;
-    var maptop = -(w-200)*2/3-15;
+    var maptop = -w*2/3-10;
     document.getElementById('responsive-map').style.marginTop = maptop + "px";
 }
 
