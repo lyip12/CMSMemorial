@@ -5,6 +5,7 @@ var selectcategory = "all",
     selectstatus = "all",
     selecttime = "yes";
 
+var values = [1600, 2019];
 
 //https://jqueryui.com/slider/#range
 updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
@@ -15,7 +16,7 @@ $( function() {
         range: true,
         min: 1600,
         max: 2019,
-        values: [ 1600, 2019 ],
+        values: values,
         slide: function( event, ui ) {
             $( "#range" ).val( ui.values[0] + " - " + ui.values[1] );
             start = ui.values[0];
@@ -326,36 +327,36 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
         .append( "path" )
         .attr( "fill", function(d){
         if(d.Gender == "female"){
-            return "#ff8e4d";
+            return "#8c425d";
         } else if (d.Gender == "male"){
-            return "#9fe0df";
+            return "#18545e";
         } else if (d.Gender == ""){
             return "white";
         } else {
-            return "orange";
+            return "#7b428c";
         }
     })
         .attr( "opacity", 0.5 )
         .attr("stroke-width", function(d){
         if(d.Gender == "female"){
-            return 50;
+            return 1;
         } else if (d.Gender == "male"){
-            return 10;
+            return 1;
         } else if (d.Gender == ""){
-            return 0.01;
+            return 0;
         } else {
-            return 0.01;
+            return 0;
         }
     })
         .attr( "stroke", function(d){
         if(d.Gender == "female"){
-            return "#ff8e4d";
+            return "#8c425d";
         } else if (d.Gender == "male"){
-            return "#9fe0df";
+            return "#18545e";
         } else if (d.Gender == ""){
             return "white";
         } else {
-            return "orange";
+            return "#7b428c";
         }
     })
         .attr( "d", geoPath)
