@@ -170,9 +170,9 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
             .style("stroke", "#ff8003")
             .style("opacity", 1)
 
-
+        console.log("this is working");
         var mapbackgroundstart = "<img src='assets/image/map";
-        var mapbackgroundfinish = ".jpg' id='responsive-map' alt='old boston map'>";
+        var mapbackgroundfinish = ".png' id='responsive-map' alt='old boston map'>";
         //console.log(mapbackgroundstart + 2013 + mapbackgroundfinish)
         if(d.YearMonumentalized <= 1850 && d.YearMonumentalized !== ""){
             document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1780 + mapbackgroundfinish;
@@ -296,7 +296,7 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
     .scale(770000)
     .rotate( [71.057,0] )
     .center( [0, 42.4] )
-    .translate([700,-300]);
+    .translate([700,-290]);
 
     var geoPath = d3.geoPath()
     .projection( albersProjection );
@@ -310,7 +310,7 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
         .append("path")
         .data(neighborhoods_json.features )
         .attr( "fill", "#736a60" )
-        .attr("opacity", 0.1)
+        .attr("opacity", 0)
         .attr("stroke-width", 1)
         .attr( "stroke", "#CFC3B8")
         .attr( "d", geoPath );

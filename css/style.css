@@ -205,7 +205,6 @@ td{
 
 #responsive-map {  
     width: 100%;
-    opacity: 0.3;
     height: auto; 
 } 
 
@@ -228,6 +227,7 @@ td{
 }
 
 .contain {
+    background-attachment: fixed;
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: contain;
