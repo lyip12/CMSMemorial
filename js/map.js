@@ -10,30 +10,42 @@ var values = [1600, 2019];
 //https://jqueryui.com/slider/#range
 updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
 
+updateslider(values);
 
-$( function() {
-    $( "#slider-range" ).slider({
-        range: true,
-        min: 1600,
-        max: 2019,
-        values: values,
-        slide: function( event, ui ) {
-            $( "#range" ).val( ui.values[0] + " - " + ui.values[1] );
-            start = ui.values[0];
-            end = ui.values[1];
+function updateslider(v){
 
+    $( function() {
+        $( "#slider" ).slider({
+            range: true,
+            min: 1600,
+            max: 2019,
+            values: v,
+            slide: function( event, ui ) {
+                $( "#range" ).val( ui.values[0] + " - " + ui.values[1] );
+                start = ui.values[0];
+                end = ui.values[1];
 
-            var selectcategory = $("input[name='category']:checked").val();
-            var selecttype = $("input[name='type']:checked").val();
-            var selectstatus = $("input[name='status']:checked").val();
-            var selecttime= $("input[name='time']:checked").val();
-            updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
-        }
+                $("#label-0").css('left', ui.values[0] + "%").text(ui.values[0]);
+                $("#label-1").css('left', ui.values[1] + "%").text(ui.values[1]);
+
+                var selectcategory = $("input[name='category']:checked").val();
+                var selecttype = $("input[name='type']:checked").val();
+                var selectstatus = $("input[name='status']:checked").val();
+                var selecttime= $("input[name='time']:checked").val();
+                updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
+                
+                $("#label-0").css('left', (start-1600)/419*82 + "%").text(start);
+                $("#label-1").css('left', (end-1600)/419*82 + "%").text(end);
+            },
+            create: function(event, ui) {
+                console.log((start-1600)/419*100);
+                console.log((end-1600)/419*100);
+                $("#label-0").css('left', (start-1600)/419*82 + "%").text(start);
+                $("#label-1").css('left', (end-1600)/419*82 + "%").text(end);
+            }
+        }).trigger('slide');
     });
-    $( "#range" ).val($( "#slider-range" ).slider( "values", 0 ) +
-                      " - " + $( "#slider-range" ).slider( "values", 1 ) );
-} );
-
+};
 
 $("#categoryfilter").click(function () {
     var selectcategory = $("input[name='category']:hover").val();
@@ -45,6 +57,7 @@ $("#categoryfilter").click(function () {
         updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
     };
 });
+
 
 $("#typefilter").click(function () {
     var selecttype = $("input[name='type']:hover").val();
@@ -139,8 +152,8 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
             return d.YearMonumentalized >= start && d.YearMonumentalized <= end;
         };
     })
-    
-    
+
+
     var finalfilter = timefilter.sort( function(a, b){ 
         return a.Gender - b.Gender;
     });

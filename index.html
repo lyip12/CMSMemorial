@@ -24,7 +24,6 @@
 
     </head>
     <body>
-
         <div id = "cd-vertical-nav">
             <ul>
                 <li>
@@ -119,7 +118,7 @@
                             <div>
                                 <p style="text-align: justify">The interactive map on the right allows filtering of current monumental database based on user selection and preferences. The geologcial map allows the monuments to be placed in their historical context, and displays relevant information on the left.</p>
                             </div>
-                            <p style="margin-bottom: 6px !important"><b>Record Category</b></p>
+                            <p style="margin-bottom: 6px !important; margin-top: 8px !important"><b>Record Category</b></p>
                             <form id="categoryfilter" data-toggle="buttons">
                                 <div class="btn-group btn-group-toggle">
                                     <label class="btn btn-dark active"><input type="radio" name="category" autocomplete="" checked value="all">All</label>
@@ -130,7 +129,7 @@
                                 </div>
                             </form>
 
-                            <p style="margin-bottom: 6px !important"><br><b>Establishment Type</b></p>
+                            <p style="margin-bottom: 6px !important; margin-top: 8px !important"><b>Establishment Type</b></p>
                             <form id="typefilter" data-toggle="buttons">
                                 <div class="btn-group btn-group-toggle">
                                     <label class="btn btn-dark active"><input type="radio" name="type" autocomplete="" checked value="all">All</label>
@@ -141,7 +140,7 @@
                                 </div>
                             </form>
 
-                            <p style="margin-bottom: 6px !important"><br><b>Current Status</b></p>
+                            <p style="margin-bottom: 6px !important; margin-top: 8px !important"><b>Current Status</b></p>
                             <form id="statusfilter" data-toggle="buttons">
                                 <div class="btn-group btn-group-toggle">
                                     <label class="btn btn-dark active"><input type="radio" name="status" autocomplete="" checked value="all">All</label>
@@ -151,17 +150,23 @@
                                 </div>
                             </form>
                             <br>
-                            <p> Date Range: 
-                                <input type="text" id="range" readonly>
+                            <div id="labelHolder">
+                                <span id="label-0"></span>
+                                <span id="label-1"></span>
+                            </div>
+                            <br>
+                            <div id="slider" style="margin: 0px 3px 14px 3px"></div>
+
+                            <p style="font-size: 20px !important; text-align-last: justify; !important">
+                                <i class="fa fa-sort-up"></i> <i class="fa fa-sort-up"></i> &nbsp <i class="fa fa-sort-up"></i>
                             </p>
-                            <div id="slider-range" style="margin: 0px 8px 10px 8px"></div>
+
                             <form id="timefilter" data-toggle="buttons">
                                 <div class="btn-group btn-group-toggle">
                                     <label class="btn btn-dark active"><input type="radio" name="time" autocomplete="" checked value="yes">Include Non-Dated</label>
                                     <label class="btn btn-light"><input type="radio" name="time" autocomplete="off" value="no">Does Not Include Non-Dated</label>
                                 </div>
                             </form>
-                            <p class="blue"> <br>*Map on left is approximated to existing data</p>
                             <div style="height:25px"></div>
                             <div class="line"></div>
                             <div style="height:50px"></div>
@@ -190,69 +195,68 @@
                 <div style="height:50px"></div>
                 <div class="row">
                     <div class="col col-md-1" style="padding-right: 50px;"></div>
-                    <div class="col col-md-2" style="padding-right: 50px !important;">
+                    <div class="col col-md-3" style="padding: 40px 25px 30px 50px !important; background: #cccccc;">
                         <h5>Beacon Hill</h5>
                         <p style="text-align: justify">The Beacon Hill Walk begins at the Massachusetts State House with the statues of two seventeenth century women religious dissenters. The walk continues up, down, and across Beacon Hill, often paralleling the Black Heritage Trail. Starting with intense activity in the period before and after the Civil War and continuing into the nineteenth century, women writers and artists living here supported social movements ranging from anti-slavery to suffrage. The walk pays particular attention to the story of Beacon Hill’s African American women and of Boston’s first women doctors and professional nurses. Beacon Hill is a designated Historic District with narrow, steep, sometimes cobblestone streets, and brick homes featuring beautiful doorways and window boxes. It was first developed by the Mount Vernon Proprietors in 1795. Charles Street along its western edge includes antique and specialty shops, restaurants, and grocery stores.<br><br></p>
                         <h5>Backbay West</h5>
                         <p style="text-align: justify">The Back Bay West Walk starts at Copley Square and ends at the Boston Women’s Memorial. Focusing on women of the mid-nineteenth and early twentieth centuries, the sites demonstrate the high energy devoted by women to the arts and education, pointing out educational institutions, clubs, and art associations as well as women’s sculptures.</p>
                     </div>
-                    <div class="col col-md-2" style="padding-right: 50px !important;">
+                    <div class="col col-md-3" style="padding: 40px 50px 30px 25px !important; background: #cccccc;">
                         <h5>Backbay East</h5>
                         <p style="text-align: justify">The Back Bay, originally a mudflat, was filled in with gravel brought from suburban Needham by train between 1852 and 1890. The land is flat, with streets laid out in a straight grid. The cross streets are conveniently named alphabetically from A to H. This elegant neighborhood includes Commonwealth Avenue with its tree-lined mall of grass, center walking path, and sculptures, as well as the “uptown” shopping area with high-end stores, art galleries, and restaurants. The Back Bay East Walk starts and ends at the Public Garden. The sites highlight the work of women in the arts and in education, and women who led the way in environmental protection, suffrage, and peace.<br><br></p>
                         <h5>Downtown</h5>
                         <p style="text-align: justify">The Downtown Walk begins at the State House and goes past many of Boston’s earliest historic sites, ending at Franklin and Washington streets, a block below Tremont Street and the Boston Common. The walk features women across the centuries, with a focus on the eighteenth century through the mid-nineteenth century. It includes women who wrote poetry, essays, and plays and spoke out publicly before members of the Massachusetts State Legislature and in Boston’s halls and churches for the abolition of slavery, woman suffrage, and African American and Native American rights. Boston’s downtown area is home to its business and financial institutions, as well as to a major shopping area and the Quincy Market at Faneuil Hall.</p>
                     </div>
-                    <div class="col col-md-2">
+                    <div class="col col-md-1"></div>
+                    <div class="col col-md-3">
                         <div style="text-align: right;">
                             <h3>SPOTLIGHT</h3>
                             <h5>Boston Women’s Heritage Trail</h5>
                             <p style="text-align: justify">Since 1989, the Boston Women’s Heritage Trail (BWHT) has worked to restore women to their rightful place in the history of Boston and in the school curriculum by uncovering, chronicling, and disseminating information about the women who have made lasting contributions to the City of Boston.</p>
                         </div>
                         <div id="visexample" class="carousel slide" data-interval="2000" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#visexample" data-slide-to="0" class="active"></li>
-                            <li data-target="#visexample" data-slide-to="1"></li>
-                            <li data-target="#visexample" data-slide-to="2"></li>
-                            <li data-target="#visexample" data-slide-to="3"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="assets/image/w1.png" >
-                                <div class="carousel-caption d-none d-md-block">
+                            <ol class="carousel-indicators">
+                                <li data-target="#visexample" data-slide-to="0" class="active"></li>
+                                <li data-target="#visexample" data-slide-to="1"></li>
+                                <li data-target="#visexample" data-slide-to="2"></li>
+                                <li data-target="#visexample" data-slide-to="3"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="assets/image/w1.png" >
+                                    <div class="carousel-caption d-none d-md-block">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="assets/image/w2.png" >
+                                    <div class="carousel-caption d-none d-md-block">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="assets/image/w3.png" >
+                                    <div class="carousel-caption d-none d-md-block">
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="assets/image/w4.png" >
+                                    <div class="carousel-caption d-none d-md-block">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/image/w2.png" >
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/image/w3.png" >
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="assets/image/w4.png" >
-                                <div class="carousel-caption d-none d-md-block">
-                                </div>
-                            </div>
+                            <a class="carousel-control-prev" href="#visexample" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#visexample" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
-                        <a class="carousel-control-prev" href="#visexample" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#visexample" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                    </div>
-                    <div class="col col-md-4" style="padding-right: 50px !important;">
-                        
                     </div>
                     <div class="col col-md-1"></div>
                 </div>
                 <div style="height:40px"></div>
+
                 <div class="row">
                     <div class="col col-md-1"></div>
                     <div class="col col-md-11"><div class="line"></div></div>
