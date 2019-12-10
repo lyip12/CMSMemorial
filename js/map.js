@@ -176,7 +176,7 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
     .attr("class", "tooltip")
     .style("background-color", "white")
     .style("border-radius", "3px")
-    .style("color", "#ff8003")
+    .style("color", "black")
     .style("font-size", "14px")
     .style("padding", "3px")
 
@@ -215,20 +215,15 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
             responsivemap();
         };
 
-
-
-
-        if((d.Gender) !== ""){ var gender = "<br><button type='button' class='btn-secondary btn-sm' style='font-size: 10px; background-color: #8b9487 !important;border: none !important; height: 25px;'>gender</button>"} else { var gender = ""};
-        if((d.Ethnicity) !== ""){ var ethnicity = "<br><button type='button' class='btn-secondary btn-sm' style='font-size: 10px; background-color: #8b9487 !important;border: none !important; height: 25px;'>ethnicity</button>"} else { var ethnicity = ""};
         if((d.Controversy) !== ""){ var contro = "<br><button type='button' class='btn-secondary btn-sm' style='font-size: 10px; background-color: #8b9487 !important;border: none !important; height: 25px;'>controversy</button>"} else { var contro = ""};
         if((d.Vandalized) !== ""){ var van = "<br><button type='button' class='btn-secondary btn-sm' style='font-size: 10px; background-color: #8b9487 !important;border: none !important; height: 25px;'>vandalized</button>"} else { var van = ""};
 
-        tip = d.Name + gender + ethnicity + contro + van;
+        tip = d.Name + contro + van;
 
         Tooltip
             .html(tip)
-            .style("left", (d3.mouse(this)[0]*0.98-150) + "px")
-            .style("top", (d3.mouse(this)[1])*0.85-150 + "px")
+            .style("left", (d3.mouse(this)[0]*1.2-50) + "px")
+            .style("top", (d3.mouse(this)[1]*1.2-50) + "px")
             .transition()
             .duration(300)
             .style("opacity", 1);
@@ -238,7 +233,17 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
         d3.select(this)
             .transition()
             .duration(300)
-            .style("fill", "#ffffff")  
+            .style( "fill", function(d){
+        if(d.Gender == "female"){
+            return "#911a0a";
+        } else if (d.Gender == "male"){
+            return "#18545e";
+        } else if (d.Gender == ""){
+            return "white";
+        } else {
+            return "#7b428c";
+        }
+    });
 
         Tooltip
             .style("opacity", 1)
@@ -263,37 +268,51 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
             .style("top", (d3.mouse(this)[1]*2.5) + "px")
             .transition()
             .duration(300)
-            .style("opacity", 1);
+            .style("opacity", 0);
 
 
-        if((d.Gender) !== ""){ var g = "Gender: "+d.Gender+"<br>"} else { var g = ""};
-        if((d.Ethnicity) !== ""){ var e = "Ethnicity: " + d.Ethnicity} else { var e = ""};
         if((d.Controversy) !== ""){ var c = "Controversy: " + d.Controversy} else { var c = ""};
         if((d.Vandalized) !== ""){ var v = "Vandalized: " + d.Vandalized} else { var v = ""};
-        var special = g+e+c+v;
+        var special = c+v;
         var sr = "";
 
         if(special !==""){
-            var sr = "<b style='color: red !important;'>Special Record:<br>" + special + "</b><br><br>";
+            var sr = "<b style='color: orange;'>"+special + "</b><br><br>";
         } else {
-            var sr = "Special Record: none <br><br>";
+            var sr = "<b style='color:black;'>Special Record:</b> none <br><br>";
         }
 
-        var t = "<h5>" + d.Name + "</h5>"
-        + "<p>built in " + d.YearMonumentalized + "<br><br>" 
-        + "<b>Address:</b><br>"
-        + d.AddressNum + " " + d.Street + "<br>"
-        + "Boston, " + d.State + "<br>"
-        + d.Zipcode + "<br><br>"
-        + "<b>Record Category: </b>" + d.Category+"<br>"
-        + "<b>Establishment Type: </b>" + d.Type+"<br>"
-        + "<b>Current Status: </b>" + d.Status+"<br><br>"
+        var Category = d.Category || "<a>unknown category</a>";
+        var Type = d.Type || "<a class='popup' onclick='popUp()'>unknown type<span class='popuptext' id='myPopup'>Enter Data: __ [submit]</a>";
+        var Status = d.Status || "<a>unknown status</a>";
+
+        var YearBuilt =  d.YearMonumentalized || "<a>unknown / undocumented</a>";
+        var Ownership =  d.Ownership || "<a>unknown / undocumented</a>";
+        var Gender = d.Gender || "<a>unknown / undocumented</a>";
+        var Ethnicity = d.Ethnicity || "<a>unknown / undocumented</a>";
+
+        if(d.AddressNum !== "" && d.Street !== ""){
+            var Address = (d.AddressNum + " " + d.Street + ", Boston, MA" + d.Zipcode);
+        } else {
+            var Address = "<a>unknown, Boston, MA</a>";
+        }
+
+        var t = "<img id='myImg' src='assets/dataimg/"+d.ID+"_01.jpg' alt='" + d.Name + "' class='responsive-image' style='height: 100px !important; opacity: 0.5;'>"
+        + "<h5><br>" + d.Name + "</h5>"
+        + "<p>" + Category + " | " + Type + " | " + Status + "<br>"
+        + "<b style='color:black;'>Geolocation: </b>" + d.geometry.coordinates[0] + ", " + d.geometry.coordinates[0] + "<br>Entry ID: "+d.ID+" - <a href="+d.Source+">Source of Data Entry</a><br><br>"
+        + "<b style='color:black;'>Year Built:</b> " + YearBuilt + "<br>" 
+        + "<b style='color:black;'>Ownership:</b> " + Ownership + "<br>" 
+        + "<b style='color:black;'>Gender:</b> " + Gender + "<br>"
+        + "<b style='color:black;'>Ethnicity:</b> " + Ethnicity + "<br>"
+        + "<b style='color:black;'>Address:</b> " + Address + "<br>"
         + sr
         + d.Comments + "</p>"
-        + "<img src='assets/dataimg/"+d.ID+"_01.jpg' class='responsive-image'>"
-        + "<p>Entry ID: "+d.ID+" - <a href="+d.Source+">Source of Data Entry</a></p>";
+        + "<p>";
 
         document.getElementById("maptext").innerHTML = t;
+        
+        updateImage();
     }
 
 
@@ -341,7 +360,7 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
         .append( "path" )
         .attr( "fill", function(d){
         if(d.Gender == "female"){
-            return "#8c425d";
+            return "#911a0a";
         } else if (d.Gender == "male"){
             return "#18545e";
         } else if (d.Gender == ""){
@@ -356,7 +375,7 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
     })
         .attr( "stroke", function(d){
         if(d.Gender == "female"){
-            return "#8c425d";
+            return "#911a0a";
         } else if (d.Gender == "male"){
             return "#18545e";
         } else if (d.Gender == ""){
@@ -371,3 +390,4 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
         .on("mouseleave", mouseLeave)
 
 };
+
