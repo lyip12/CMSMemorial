@@ -34,13 +34,20 @@ h5 {
 }
 
 p,
-a,
-form{
+form {
     color: black;
     font-size: 12px !important;
     line-height: 16px !important;
     font-weight: 400 !important;
     text-align: left;
+}
+
+a {
+    color: #a3a3a3 !important;
+}
+
+a:hover{
+    color: black !important;
 }
 
 em{
@@ -233,6 +240,11 @@ td{
     background-size: contain;
 }
 
+.contain2 {
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
 
 .btn-secondary {
     background-color: #8b9487 !important;
@@ -377,7 +389,7 @@ ul {
     height: 5px;
     position: relative;
     border: none;
-    background: #1D2124;
+    background: #8b9487;
 }
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
     background: #1D2124;
@@ -388,13 +400,13 @@ ul {
     top: -8px;
 }
 .ui-slider-horizontal .ui-slider-range {
-    background: #8b9487 !important;
+    background: #1D2124 !important;
 }
 
 #label-0, #label-1 {
     color: #1D2124;
     font-family: 'PT Sans', sans-serif;
-    font-size: 12px;
+    font-size: 10px;
     position: absolute;
     width: 1.2em;
     height: 1.2em;

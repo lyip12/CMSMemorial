@@ -7,13 +7,16 @@ var selectcategory = "all",
 
 var values = [1600, 2019];
 
+var mapbackgroundstart = "<img src='assets/image/map";
+var mapbackgroundfinish = ".png' id='responsive-map' alt='old boston map'>";
+
 //https://jqueryui.com/slider/#range
 updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
 
 updateslider(values);
 
 function updateslider(v){
-
+    //console.log(v);
     $( function() {
         $( "#slider" ).slider({
             range: true,
@@ -21,6 +24,7 @@ function updateslider(v){
             max: 2019,
             values: v,
             slide: function( event, ui ) {
+                //console.log(v);
                 $( "#range" ).val( ui.values[0] + " - " + ui.values[1] );
                 start = ui.values[0];
                 end = ui.values[1];
@@ -33,18 +37,18 @@ function updateslider(v){
                 var selectstatus = $("input[name='status']:checked").val();
                 var selecttime= $("input[name='time']:checked").val();
                 updatemap(start, end, selectcategory, selecttype, selectstatus, selecttime);
-                
-                $("#label-0").css('left', (start-1600)/419*82 + "%").text(start);
-                $("#label-1").css('left', (end-1600)/419*82 + "%").text(end);
+
+                $("#label-0").css('left', (start-1600)/419*98 + "%").text(start);
+                $("#label-1").css('left', (end-1600)/419*98 + "%").text(end);
             },
             create: function(event, ui) {
-                console.log((start-1600)/419*100);
-                console.log((end-1600)/419*100);
-                $("#label-0").css('left', (start-1600)/419*82 + "%").text(start);
-                $("#label-1").css('left', (end-1600)/419*82 + "%").text(end);
+                $("#label-0").css('left', (start-1600)/419*98 + "%").text(start);
+                $("#label-1").css('left', (end-1600)/419*98 + "%").text(end);
             }
         }).trigger('slide');
+
     });
+
 };
 
 $("#categoryfilter").click(function () {
@@ -184,9 +188,6 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
             .style("stroke", "#ff8003")
             .style("opacity", 1)
 
-        console.log("this is working");
-        var mapbackgroundstart = "<img src='assets/image/map";
-        var mapbackgroundfinish = ".png' id='responsive-map' alt='old boston map'>";
         //console.log(mapbackgroundstart + 2013 + mapbackgroundfinish)
         if(d.YearMonumentalized <= 1850 && d.YearMonumentalized !== ""){
             document.getElementById("mapbackground").innerHTML = mapbackgroundstart + 1780 + mapbackgroundfinish;
@@ -349,17 +350,9 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
             return "#7b428c";
         }
     })
-        .attr( "opacity", 0.5 )
+        .attr( "opacity", 1 )
         .attr("stroke-width", function(d){
-        if(d.Gender == "female"){
-            return 1;
-        } else if (d.Gender == "male"){
-            return 1;
-        } else if (d.Gender == ""){
-            return 0;
-        } else {
-            return 0;
-        }
+        return 0;
     })
         .attr( "stroke", function(d){
         if(d.Gender == "female"){
