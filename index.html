@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Monumental Memory in Space</title>
         <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+        <script src="https://kit.fontawesome.com/c9ea7a9413.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
 
@@ -116,7 +116,10 @@
                     <div class="col col-md-3">
                         <div style="padding: 5px 0px 0 0;">
                             <div>
-                                <p style="text-align: justify">The interactive map on the right allows filtering of current monumental database based on user selection and preferences. The geologcial map allows the monuments to be placed in their historical context, and displays relevant information on the left.</p>
+                                <p style="text-align: justify">The interactive map on the right allows filtering of current monumental database based on user selection and preferences. The geologcial map allows the monuments to be placed in their historical context, and displays relevant information on the left.<br><br>
+
+                                    <a style="color:#18545e !important;"><i class="fas fa-circle"></i> Male</a> <a style="color:#911a0a !important;"><i class="fas fa-circle"></i> Female</a> <a style="color:#7b428c !important;"><i class="fas fa-circle"></i> Within-Binary</a> <a style="color:white !important;"><i class="fas fa-circle"></i> N/A</a> <i class="far fa-dot-circle"></i> Controversal / Vandalized
+                                </p>
                             </div>
                             <p style="margin-bottom: 6px !important; margin-top: 8px !important"><b>Record Category</b></p>
                             <form id="categoryfilter" data-toggle="buttons">
@@ -446,18 +449,24 @@
                 <div class="col col-md-5">
                     <div>
                         <h1 style="margin-left: -0.2vw;">TELL A STORY</h1>
-                        <p>We would like to encourage you to input your personal stories/records of monuments that you would like to add to the living archive. 
+                        <p style="color: #a3a3a3;">We would like to encourage you to input your personal stories/records of monuments that you would like to add to the living archive, where you can begin to tell the story of monuments in Boston from your perspective. Monuments in a space should reflect the values of those that live in that space, so we would like that to achieve that through you.
                         </p>
                         <form action="/action_page.php">
                             The Name of the Monument You Would Like to Input: <input type="text" value="Example Name"><br>
-                            Year Built: <input type="text" value="e.g. 1995"><br>
-                            Year Monumentalized if ever offically done so: <input type="text" value="e.g. 1995"><br>
+                            Year Built: <input type="text" value="e.g. 1995"> and Year Monumentalized if ever offically done so: <input type="text" value="e.g. 1995"><br>
+                            Category: <input type="text" value="statue? object"> and Type: <input type="text" value="community? national?"><br>
+                            Current Status: <input type="text" value="as of today"> 
                             Ownership: <input type="text" value="org? personal?"><br>
                             Controversies (if yes please specify): <input type="text" value="yes, ..."><br>
                             <br>
                             <input type="submit" value="Submit">
                         </form> 
                     </div>
+                </div>
+                <div class="col col-md-6"></div>
+            </div>
+            <div class="row">
+                <div class="col col-md-11">
                     <div style="height:50px"></div>
                     <div class="line"></div>
                     <div style="height:50px"></div>
@@ -472,11 +481,13 @@
 
                             Nelson, L. (2018). Object Lesson: Monuments and Memory in Charlottesville. Buildings & Landscapes: Journal of the Vernacular Architecture Forum, 25, 18-19<br>
 
-                            Tsai, G. (2016). The Morality of State Symbolic Power. Social Theory and Practice, 42(2), 318-342
+                            Tsai, G. (2016). The Morality of State Symbolic Power. Social Theory and Practice, 42(2), 318-342<br><br><br>
                         </p>
                     </div>
+
+
                 </div>
-                <div class="col col-md-6"></div>
+                <div class="col col-md-1"></div>
             </div>
         </div>
 

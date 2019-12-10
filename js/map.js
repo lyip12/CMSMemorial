@@ -234,6 +234,16 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
             .transition()
             .duration(300)
             .style( "fill", function(d){
+            if(d.Gender == "female"){
+                return "#911a0a";
+            } else if (d.Gender == "male"){
+                return "#18545e";
+            } else if (d.Gender == ""){
+                return "white";
+            } else {
+                return "#7b428c";
+            }
+        }).style( "stroke", function(d){
         if(d.Gender == "female"){
             return "#911a0a";
         } else if (d.Gender == "male"){
@@ -243,7 +253,7 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
         } else {
             return "#7b428c";
         }
-    });
+    })
 
         Tooltip
             .style("opacity", 1)
@@ -311,7 +321,7 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
         + "<p>";
 
         document.getElementById("maptext").innerHTML = t;
-        
+
         updateImage();
     }
 
@@ -371,7 +381,11 @@ function updatemap(start, end, selectcategory, selecttype, selectstatus, selectt
     })
         .attr( "opacity", 1 )
         .attr("stroke-width", function(d){
-        return 0;
+        if(d.Controversy !== "" || d.Vandalized !== ""){
+            return 50;
+        } else {
+            return 0;
+        }
     })
         .attr( "stroke", function(d){
         if(d.Gender == "female"){
